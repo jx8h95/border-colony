@@ -1,0 +1,4714 @@
+{
+  "meta": {
+    "generatedAt": "2026-11-06T07:36:40.594Z",
+    "masterSeed": 20261106,
+    "games": 10000,
+    "expectedGames": 10000,
+    "workers": 8,
+    "elapsedMs": 536815,
+    "turnsPerGame": 120,
+    "map": "50x50",
+    "cells": 2500,
+    "strategies": 20,
+    "sampling": "每局从 20 策略无放回抽 4 个，再随机分配到 A/B/C/D",
+    "engine": "server/engine.js（未修改）",
+    "completed": true,
+    "errors": [],
+    "diagErrors": 0
+  },
+  "global": {
+    "winTypes": {
+      "territory": 6938,
+      "conquest": 3055,
+      "mutual-destruction": 7
+    },
+    "winTypePct": {
+      "territory": 69.38,
+      "conquest": 30.55,
+      "mutual-destruction": 0.07
+    },
+    "avgTurns": 102.76,
+    "medianTurns": 120,
+    "minTurns": 15,
+    "maxTurns": 120,
+    "earlyFinishRate": 30.48,
+    "avgDeadFactions": 1.242,
+    "anyDeathRate": 55.12,
+    "avgCoverage": 0.7041,
+    "avgMargin": 725.5,
+    "uniqueCombos": 4224
+  },
+  "positions": [
+    {
+      "pos": "A",
+      "games": 10000,
+      "winRate": 27.07,
+      "avgCells": 441.8
+    },
+    {
+      "pos": "B",
+      "games": 10000,
+      "winRate": 26.7,
+      "avgCells": 453.6
+    },
+    {
+      "pos": "C",
+      "games": 10000,
+      "winRate": 24.74,
+      "avgCells": 459.1
+    },
+    {
+      "pos": "D",
+      "games": 10000,
+      "winRate": 21.49,
+      "avgCells": 405.7
+    }
+  ],
+  "strategies": [
+    {
+      "key": "decap",
+      "name": "斩首突击",
+      "family": "军事",
+      "games": 2002,
+      "wins": 1456,
+      "cells": 2037240,
+      "midCells": 2180032,
+      "kills": 3258,
+      "units": 4539,
+      "stock": 0,
+      "dead": 107,
+      "rankSum": 2887,
+      "conquestGames": 1237,
+      "conquestWins": 1169,
+      "earlyGames": 1243,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 492,
+          "winRate": 74.39,
+          "avgCells": 1056
+        },
+        {
+          "pos": "B",
+          "games": 482,
+          "winRate": 65.98,
+          "avgCells": 953.5
+        },
+        {
+          "pos": "C",
+          "games": 475,
+          "winRate": 71.58,
+          "avgCells": 1051.5
+        },
+        {
+          "pos": "D",
+          "games": 553,
+          "winRate": 78.12,
+          "avgCells": 1010.2
+        }
+      ],
+      "winRate": 72.73,
+      "ci95": 1.95,
+      "adjWinRate": 72.52,
+      "avgCells": 1017.6,
+      "avgMidCells": 1088.9,
+      "avgLateGain": -71.3,
+      "avgKills": 1.63,
+      "avgUnits": 2.27,
+      "avgStock": 0,
+      "avgRank": 1.44,
+      "deathRate": 5.34,
+      "conquestRate": 61.79,
+      "conquestWinRate": 94.5,
+      "earlyRate": 62.09
+    },
+    {
+      "key": "economy",
+      "name": "经济转军事",
+      "family": "时机",
+      "games": 2018,
+      "wins": 1275,
+      "cells": 2550801,
+      "midCells": 588531,
+      "kills": 6663,
+      "units": 13357,
+      "stock": 39513,
+      "dead": 571,
+      "rankSum": 3487,
+      "conquestGames": 1456,
+      "conquestWins": 1072,
+      "earlyGames": 1443,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 498,
+          "winRate": 61.45,
+          "avgCells": 1240
+        },
+        {
+          "pos": "B",
+          "games": 519,
+          "winRate": 64.93,
+          "avgCells": 1259.5
+        },
+        {
+          "pos": "C",
+          "games": 487,
+          "winRate": 64.48,
+          "avgCells": 1325.6
+        },
+        {
+          "pos": "D",
+          "games": 514,
+          "winRate": 61.87,
+          "avgCells": 1233.6
+        }
+      ],
+      "winRate": 63.18,
+      "ci95": 2.1,
+      "adjWinRate": 63.18,
+      "avgCells": 1264,
+      "avgMidCells": 291.6,
+      "avgLateGain": 972.4,
+      "avgKills": 3.3,
+      "avgUnits": 6.62,
+      "avgStock": 19.6,
+      "avgRank": 1.73,
+      "deathRate": 28.3,
+      "conquestRate": 72.15,
+      "conquestWinRate": 73.63,
+      "earlyRate": 71.51
+    },
+    {
+      "key": "pendulum",
+      "name": "自适应钟摆",
+      "family": "混合",
+      "games": 1886,
+      "wins": 763,
+      "cells": 978411,
+      "midCells": 793719,
+      "kills": 5735,
+      "units": 6006,
+      "stock": 0,
+      "dead": 600,
+      "rankSum": 3836,
+      "conquestGames": 538,
+      "conquestWins": 55,
+      "earlyGames": 540,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 480,
+          "winRate": 44.17,
+          "avgCells": 523.3
+        },
+        {
+          "pos": "B",
+          "games": 497,
+          "winRate": 45.07,
+          "avgCells": 580.9
+        },
+        {
+          "pos": "C",
+          "games": 439,
+          "winRate": 38.04,
+          "avgCells": 503.8
+        },
+        {
+          "pos": "D",
+          "games": 470,
+          "winRate": 34.04,
+          "avgCells": 462.4
+        }
+      ],
+      "winRate": 40.46,
+      "ci95": 2.22,
+      "adjWinRate": 40.33,
+      "avgCells": 518.8,
+      "avgMidCells": 420.8,
+      "avgLateGain": 97.9,
+      "avgKills": 3.04,
+      "avgUnits": 3.18,
+      "avgStock": 0,
+      "avgRank": 2.03,
+      "deathRate": 31.81,
+      "conquestRate": 28.53,
+      "conquestWinRate": 10.22,
+      "earlyRate": 28.63
+    },
+    {
+      "key": "weak",
+      "name": "追猎弱者",
+      "family": "军事",
+      "games": 2010,
+      "wins": 801,
+      "cells": 1397294,
+      "midCells": 1473122,
+      "kills": 4836,
+      "units": 2460,
+      "stock": 0,
+      "dead": 444,
+      "rankSum": 4543,
+      "conquestGames": 1005,
+      "conquestWins": 740,
+      "earlyGames": 1009,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 480,
+          "winRate": 36.67,
+          "avgCells": 641.8
+        },
+        {
+          "pos": "B",
+          "games": 526,
+          "winRate": 42.4,
+          "avgCells": 731.1
+        },
+        {
+          "pos": "C",
+          "games": 551,
+          "winRate": 41.02,
+          "avgCells": 726
+        },
+        {
+          "pos": "D",
+          "games": 453,
+          "winRate": 38.85,
+          "avgCells": 672.4
+        }
+      ],
+      "winRate": 39.85,
+      "ci95": 2.14,
+      "adjWinRate": 39.73,
+      "avgCells": 695.2,
+      "avgMidCells": 732.9,
+      "avgLateGain": -37.7,
+      "avgKills": 2.41,
+      "avgUnits": 1.22,
+      "avgStock": 0,
+      "avgRank": 2.26,
+      "deathRate": 22.09,
+      "conquestRate": 50,
+      "conquestWinRate": 73.63,
+      "earlyRate": 50.2
+    },
+    {
+      "key": "fort",
+      "name": "要塞抢占",
+      "family": "扩张",
+      "games": 2002,
+      "wins": 777,
+      "cells": 1016662,
+      "midCells": 1067873,
+      "kills": 7393,
+      "units": 14977,
+      "stock": 67623,
+      "dead": 733,
+      "rankSum": 4264,
+      "conquestGames": 555,
+      "conquestWins": 0,
+      "earlyGames": 553,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 496,
+          "winRate": 44.76,
+          "avgCells": 534.3
+        },
+        {
+          "pos": "B",
+          "games": 488,
+          "winRate": 40.37,
+          "avgCells": 508
+        },
+        {
+          "pos": "C",
+          "games": 527,
+          "winRate": 41.56,
+          "avgCells": 557.6
+        },
+        {
+          "pos": "D",
+          "games": 491,
+          "winRate": 28.31,
+          "avgCells": 427.5
+        }
+      ],
+      "winRate": 38.81,
+      "ci95": 2.13,
+      "adjWinRate": 38.75,
+      "avgCells": 507.8,
+      "avgMidCells": 533.4,
+      "avgLateGain": -25.6,
+      "avgKills": 3.69,
+      "avgUnits": 7.48,
+      "avgStock": 33.8,
+      "avgRank": 2.13,
+      "deathRate": 36.61,
+      "conquestRate": 27.72,
+      "conquestWinRate": 0,
+      "earlyRate": 27.62
+    },
+    {
+      "key": "mine",
+      "name": "矿脉优先",
+      "family": "经济",
+      "games": 2041,
+      "wins": 701,
+      "cells": 1055624,
+      "midCells": 1026654,
+      "kills": 7320,
+      "units": 18296,
+      "stock": 212547,
+      "dead": 705,
+      "rankSum": 4453,
+      "conquestGames": 574,
+      "conquestWins": 0,
+      "earlyGames": 572,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 531,
+          "winRate": 37.66,
+          "avgCells": 521.7
+        },
+        {
+          "pos": "B",
+          "games": 528,
+          "winRate": 39.02,
+          "avgCells": 560
+        },
+        {
+          "pos": "C",
+          "games": 486,
+          "winRate": 31.69,
+          "avgCells": 513.3
+        },
+        {
+          "pos": "D",
+          "games": 496,
+          "winRate": 28.43,
+          "avgCells": 470.6
+        }
+      ],
+      "winRate": 34.35,
+      "ci95": 2.06,
+      "adjWinRate": 34.2,
+      "avgCells": 517.2,
+      "avgMidCells": 503,
+      "avgLateGain": 14.2,
+      "avgKills": 3.59,
+      "avgUnits": 8.96,
+      "avgStock": 104.1,
+      "avgRank": 2.18,
+      "deathRate": 34.54,
+      "conquestRate": 28.12,
+      "conquestWinRate": 0,
+      "earlyRate": 28.03
+    },
+    {
+      "key": "ring",
+      "name": "环形开垦",
+      "family": "扩张",
+      "games": 2004,
+      "wins": 651,
+      "cells": 899180,
+      "midCells": 618918,
+      "kills": 6416,
+      "units": 15760,
+      "stock": 15951,
+      "dead": 778,
+      "rankSum": 4368,
+      "conquestGames": 586,
+      "conquestWins": 0,
+      "earlyGames": 584,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 518,
+          "winRate": 39.77,
+          "avgCells": 493.1
+        },
+        {
+          "pos": "B",
+          "games": 467,
+          "winRate": 32.76,
+          "avgCells": 415
+        },
+        {
+          "pos": "C",
+          "games": 488,
+          "winRate": 31.76,
+          "avgCells": 457.9
+        },
+        {
+          "pos": "D",
+          "games": 531,
+          "winRate": 25.8,
+          "avgCells": 426.5
+        }
+      ],
+      "winRate": 32.49,
+      "ci95": 2.05,
+      "adjWinRate": 32.52,
+      "avgCells": 448.7,
+      "avgMidCells": 308.8,
+      "avgLateGain": 139.9,
+      "avgKills": 3.2,
+      "avgUnits": 7.86,
+      "avgStock": 8,
+      "avgRank": 2.18,
+      "deathRate": 38.82,
+      "conquestRate": 29.24,
+      "conquestWinRate": 0,
+      "earlyRate": 29.14
+    },
+    {
+      "key": "late",
+      "name": "末段冲刺",
+      "family": "时机",
+      "games": 1953,
+      "wins": 564,
+      "cells": 941969,
+      "midCells": 51358,
+      "kills": 6671,
+      "units": 9613,
+      "stock": 0,
+      "dead": 306,
+      "rankSum": 4265,
+      "conquestGames": 242,
+      "conquestWins": 0,
+      "earlyGames": 234,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 537,
+          "winRate": 29.98,
+          "avgCells": 473.3
+        },
+        {
+          "pos": "B",
+          "games": 490,
+          "winRate": 33.27,
+          "avgCells": 526
+        },
+        {
+          "pos": "C",
+          "games": 450,
+          "winRate": 24.89,
+          "avgCells": 468.4
+        },
+        {
+          "pos": "D",
+          "games": 476,
+          "winRate": 26.89,
+          "avgCells": 460.6
+        }
+      ],
+      "winRate": 28.88,
+      "ci95": 2.01,
+      "adjWinRate": 28.76,
+      "avgCells": 482.3,
+      "avgMidCells": 26.3,
+      "avgLateGain": 456,
+      "avgKills": 3.42,
+      "avgUnits": 4.92,
+      "avgStock": 0,
+      "avgRank": 2.18,
+      "deathRate": 15.67,
+      "conquestRate": 12.39,
+      "conquestWinRate": 0,
+      "earlyRate": 11.98
+    },
+    {
+      "key": "spring",
+      "name": "泉水猎手",
+      "family": "军事",
+      "games": 1954,
+      "wins": 536,
+      "cells": 836957,
+      "midCells": 659561,
+      "kills": 12929,
+      "units": 4623,
+      "stock": 0,
+      "dead": 625,
+      "rankSum": 4436,
+      "conquestGames": 465,
+      "conquestWins": 0,
+      "earlyGames": 464,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 485,
+          "winRate": 35.88,
+          "avgCells": 461.9
+        },
+        {
+          "pos": "B",
+          "games": 464,
+          "winRate": 39.22,
+          "avgCells": 487.4
+        },
+        {
+          "pos": "C",
+          "games": 498,
+          "winRate": 21.29,
+          "avgCells": 423.5
+        },
+        {
+          "pos": "D",
+          "games": 507,
+          "winRate": 14.6,
+          "avgCells": 346.8
+        }
+      ],
+      "winRate": 27.43,
+      "ci95": 1.98,
+      "adjWinRate": 27.75,
+      "avgCells": 428.3,
+      "avgMidCells": 337.5,
+      "avgLateGain": 90.8,
+      "avgKills": 6.62,
+      "avgUnits": 2.37,
+      "avgStock": 0,
+      "avgRank": 2.27,
+      "deathRate": 31.99,
+      "conquestRate": 23.8,
+      "conquestWinRate": 0,
+      "earlyRate": 23.75
+    },
+    {
+      "key": "guerrilla",
+      "name": "游击穿插",
+      "family": "混合",
+      "games": 1942,
+      "wins": 432,
+      "cells": 784403,
+      "midCells": 665124,
+      "kills": 6697,
+      "units": 5106,
+      "stock": 0,
+      "dead": 671,
+      "rankSum": 4790,
+      "conquestGames": 513,
+      "conquestWins": 0,
+      "earlyGames": 513,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 467,
+          "winRate": 29.34,
+          "avgCells": 425.5
+        },
+        {
+          "pos": "B",
+          "games": 487,
+          "winRate": 19.51,
+          "avgCells": 369.2
+        },
+        {
+          "pos": "C",
+          "games": 491,
+          "winRate": 21.38,
+          "avgCells": 416.9
+        },
+        {
+          "pos": "D",
+          "games": 497,
+          "winRate": 19.11,
+          "avgCells": 404.7
+        }
+      ],
+      "winRate": 22.25,
+      "ci95": 1.85,
+      "adjWinRate": 22.34,
+      "avgCells": 403.9,
+      "avgMidCells": 342.5,
+      "avgLateGain": 61.4,
+      "avgKills": 3.45,
+      "avgUnits": 2.63,
+      "avgStock": 0,
+      "avgRank": 2.47,
+      "deathRate": 34.55,
+      "conquestRate": 26.42,
+      "conquestWinRate": 0,
+      "earlyRate": 26.42
+    },
+    {
+      "key": "pacifist",
+      "name": "避战发育",
+      "family": "防守",
+      "games": 1982,
+      "wins": 375,
+      "cells": 722828,
+      "midCells": 524887,
+      "kills": 2857,
+      "units": 14145,
+      "stock": 47538,
+      "dead": 819,
+      "rankSum": 4865,
+      "conquestGames": 581,
+      "conquestWins": 0,
+      "earlyGames": 581,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 507,
+          "winRate": 22.68,
+          "avgCells": 351.5
+        },
+        {
+          "pos": "B",
+          "games": 482,
+          "winRate": 23.24,
+          "avgCells": 382.3
+        },
+        {
+          "pos": "C",
+          "games": 503,
+          "winRate": 16.5,
+          "avgCells": 391.3
+        },
+        {
+          "pos": "D",
+          "games": 490,
+          "winRate": 13.27,
+          "avgCells": 333.7
+        }
+      ],
+      "winRate": 18.92,
+      "ci95": 1.72,
+      "adjWinRate": 18.92,
+      "avgCells": 364.7,
+      "avgMidCells": 264.8,
+      "avgLateGain": 99.9,
+      "avgKills": 1.44,
+      "avgUnits": 7.14,
+      "avgStock": 24,
+      "avgRank": 2.45,
+      "deathRate": 41.32,
+      "conquestRate": 29.31,
+      "conquestWinRate": 0,
+      "earlyRate": 29.31
+    },
+    {
+      "key": "column",
+      "name": "纵向推进",
+      "family": "扩张",
+      "games": 2044,
+      "wins": 328,
+      "cells": 663412,
+      "midCells": 798022,
+      "kills": 4603,
+      "units": 2695,
+      "stock": 0,
+      "dead": 801,
+      "rankSum": 5518,
+      "conquestGames": 627,
+      "conquestWins": 0,
+      "earlyGames": 626,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 501,
+          "winRate": 17.56,
+          "avgCells": 325.4
+        },
+        {
+          "pos": "B",
+          "games": 511,
+          "winRate": 2.35,
+          "avgCells": 173.5
+        },
+        {
+          "pos": "C",
+          "games": 522,
+          "winRate": 28.16,
+          "avgCells": 461.6
+        },
+        {
+          "pos": "D",
+          "games": 510,
+          "winRate": 15.88,
+          "avgCells": 334.8
+        }
+      ],
+      "winRate": 16.05,
+      "ci95": 1.59,
+      "adjWinRate": 15.99,
+      "avgCells": 324.6,
+      "avgMidCells": 390.4,
+      "avgLateGain": -65.9,
+      "avgKills": 2.25,
+      "avgUnits": 1.32,
+      "avgStock": 0,
+      "avgRank": 2.7,
+      "deathRate": 39.19,
+      "conquestRate": 30.68,
+      "conquestWinRate": 0,
+      "earlyRate": 30.63
+    },
+    {
+      "key": "border",
+      "name": "边境蚕食",
+      "family": "扩张",
+      "games": 2050,
+      "wins": 315,
+      "cells": 711989,
+      "midCells": 957538,
+      "kills": 6004,
+      "units": 233,
+      "stock": 0,
+      "dead": 805,
+      "rankSum": 5623,
+      "conquestGames": 613,
+      "conquestWins": 2,
+      "earlyGames": 612,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 516,
+          "winRate": 22.67,
+          "avgCells": 442.1
+        },
+        {
+          "pos": "B",
+          "games": 516,
+          "winRate": 16.09,
+          "avgCells": 348
+        },
+        {
+          "pos": "C",
+          "games": 517,
+          "winRate": 11.03,
+          "avgCells": 298.6
+        },
+        {
+          "pos": "D",
+          "games": 501,
+          "winRate": 11.58,
+          "avgCells": 299.2
+        }
+      ],
+      "winRate": 15.37,
+      "ci95": 1.56,
+      "adjWinRate": 15.34,
+      "avgCells": 347.3,
+      "avgMidCells": 467.1,
+      "avgLateGain": -119.8,
+      "avgKills": 2.93,
+      "avgUnits": 0.11,
+      "avgStock": 0,
+      "avgRank": 2.74,
+      "deathRate": 39.27,
+      "conquestRate": 29.9,
+      "conquestWinRate": 0.33,
+      "earlyRate": 29.85
+    },
+    {
+      "key": "row",
+      "name": "扫帚横扫",
+      "family": "扩张",
+      "games": 1954,
+      "wins": 283,
+      "cells": 565129,
+      "midCells": 690196,
+      "kills": 4564,
+      "units": 2297,
+      "stock": 0,
+      "dead": 756,
+      "rankSum": 5473,
+      "conquestGames": 561,
+      "conquestWins": 1,
+      "earlyGames": 557,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 470,
+          "winRate": 18.09,
+          "avgCells": 314.1
+        },
+        {
+          "pos": "B",
+          "games": 492,
+          "winRate": 27.03,
+          "avgCells": 430.4
+        },
+        {
+          "pos": "C",
+          "games": 495,
+          "winRate": 5.05,
+          "avgCells": 202.6
+        },
+        {
+          "pos": "D",
+          "games": 497,
+          "winRate": 8.05,
+          "avgCells": 212.3
+        }
+      ],
+      "winRate": 14.48,
+      "ci95": 1.56,
+      "adjWinRate": 14.55,
+      "avgCells": 289.2,
+      "avgMidCells": 353.2,
+      "avgLateGain": -64,
+      "avgKills": 2.34,
+      "avgUnits": 1.18,
+      "avgStock": 0,
+      "avgRank": 2.8,
+      "deathRate": 38.69,
+      "conquestRate": 28.71,
+      "conquestWinRate": 0.18,
+      "earlyRate": 28.51
+    },
+    {
+      "key": "diag",
+      "name": "对角穿越",
+      "family": "扩张",
+      "games": 2075,
+      "wins": 300,
+      "cells": 657841,
+      "midCells": 779227,
+      "kills": 5539,
+      "units": 1552,
+      "stock": 0,
+      "dead": 653,
+      "rankSum": 5703,
+      "conquestGames": 480,
+      "conquestWins": 16,
+      "earlyGames": 483,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 535,
+          "winRate": 5.05,
+          "avgCells": 177.8
+        },
+        {
+          "pos": "B",
+          "games": 519,
+          "winRate": 20.42,
+          "avgCells": 354.5
+        },
+        {
+          "pos": "C",
+          "games": 514,
+          "winRate": 26.26,
+          "avgCells": 516.9
+        },
+        {
+          "pos": "D",
+          "games": 507,
+          "winRate": 6.31,
+          "avgCells": 223
+        }
+      ],
+      "winRate": 14.46,
+      "ci95": 1.51,
+      "adjWinRate": 14.51,
+      "avgCells": 317,
+      "avgMidCells": 375.5,
+      "avgLateGain": -58.5,
+      "avgKills": 2.67,
+      "avgUnits": 0.75,
+      "avgStock": 0,
+      "avgRank": 2.75,
+      "deathRate": 31.47,
+      "conquestRate": 23.13,
+      "conquestWinRate": 3.33,
+      "earlyRate": 23.28
+    },
+    {
+      "key": "brawler",
+      "name": "贴身肉搏",
+      "family": "军事",
+      "games": 1992,
+      "wins": 226,
+      "cells": 458935,
+      "midCells": 660299,
+      "kills": 12287,
+      "units": 249,
+      "stock": 0,
+      "dead": 739,
+      "rankSum": 5687,
+      "conquestGames": 522,
+      "conquestWins": 0,
+      "earlyGames": 522,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 471,
+          "winRate": 13.16,
+          "avgCells": 239.8
+        },
+        {
+          "pos": "B",
+          "games": 504,
+          "winRate": 14.29,
+          "avgCells": 264.9
+        },
+        {
+          "pos": "C",
+          "games": 540,
+          "winRate": 11.85,
+          "avgCells": 235.2
+        },
+        {
+          "pos": "D",
+          "games": 477,
+          "winRate": 5.87,
+          "avgCells": 179.2
+        }
+      ],
+      "winRate": 11.35,
+      "ci95": 1.39,
+      "adjWinRate": 11.29,
+      "avgCells": 230.4,
+      "avgMidCells": 331.5,
+      "avgLateGain": -101.1,
+      "avgKills": 6.17,
+      "avgUnits": 0.13,
+      "avgStock": 0,
+      "avgRank": 2.85,
+      "deathRate": 37.1,
+      "conquestRate": 26.2,
+      "conquestWinRate": 0,
+      "earlyRate": 26.2
+    },
+    {
+      "key": "center",
+      "name": "中心争夺",
+      "family": "扩张",
+      "games": 2078,
+      "wins": 197,
+      "cells": 525464,
+      "midCells": 597992,
+      "kills": 7377,
+      "units": 3555,
+      "stock": 0,
+      "dead": 857,
+      "rankSum": 5838,
+      "conquestGames": 601,
+      "conquestWins": 0,
+      "earlyGames": 596,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 516,
+          "winRate": 9.3,
+          "avgCells": 219.6
+        },
+        {
+          "pos": "B",
+          "games": 519,
+          "winRate": 8.48,
+          "avgCells": 260.1
+        },
+        {
+          "pos": "C",
+          "games": 523,
+          "winRate": 12.05,
+          "avgCells": 291.8
+        },
+        {
+          "pos": "D",
+          "games": 520,
+          "winRate": 8.08,
+          "avgCells": 239.5
+        }
+      ],
+      "winRate": 9.48,
+      "ci95": 1.26,
+      "adjWinRate": 9.48,
+      "avgCells": 252.9,
+      "avgMidCells": 287.8,
+      "avgLateGain": -34.9,
+      "avgKills": 3.55,
+      "avgUnits": 1.71,
+      "avgStock": 0,
+      "avgRank": 2.81,
+      "deathRate": 41.24,
+      "conquestRate": 28.92,
+      "conquestWinRate": 0,
+      "earlyRate": 28.68
+    },
+    {
+      "key": "swarm",
+      "name": "蜂群扩散",
+      "family": "扩张",
+      "games": 2037,
+      "wins": 16,
+      "cells": 435233,
+      "midCells": 529414,
+      "kills": 4245,
+      "units": 7579,
+      "stock": 0,
+      "dead": 672,
+      "rankSum": 6322,
+      "conquestGames": 504,
+      "conquestWins": 0,
+      "earlyGames": 500,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 510,
+          "winRate": 0.98,
+          "avgCells": 249.5
+        },
+        {
+          "pos": "B",
+          "games": 517,
+          "winRate": 1.93,
+          "avgCells": 270.6
+        },
+        {
+          "pos": "C",
+          "games": 502,
+          "winRate": 0.2,
+          "avgCells": 187.3
+        },
+        {
+          "pos": "D",
+          "games": 508,
+          "winRate": 0,
+          "avgCells": 145.8
+        }
+      ],
+      "winRate": 0.79,
+      "ci95": 0.38,
+      "adjWinRate": 0.78,
+      "avgCells": 213.7,
+      "avgMidCells": 259.9,
+      "avgLateGain": -46.2,
+      "avgKills": 2.08,
+      "avgUnits": 3.72,
+      "avgStock": 0,
+      "avgRank": 3.1,
+      "deathRate": 32.99,
+      "conquestRate": 24.74,
+      "conquestWinRate": 0,
+      "earlyRate": 24.55
+    },
+    {
+      "key": "survivor",
+      "name": "低血回防",
+      "family": "防守",
+      "games": 1939,
+      "wins": 4,
+      "cells": 309029,
+      "midCells": 299998,
+      "kills": 4109,
+      "units": 12270,
+      "stock": 10002,
+      "dead": 702,
+      "rankSum": 6261,
+      "conquestGames": 517,
+      "conquestWins": 0,
+      "earlyGames": 516,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 471,
+          "winRate": 0,
+          "avgCells": 146.2
+        },
+        {
+          "pos": "B",
+          "games": 493,
+          "winRate": 0,
+          "avgCells": 159.2
+        },
+        {
+          "pos": "C",
+          "games": 503,
+          "winRate": 0.2,
+          "avgCells": 172.8
+        },
+        {
+          "pos": "D",
+          "games": 472,
+          "winRate": 0.64,
+          "avgCells": 158.5
+        }
+      ],
+      "winRate": 0.21,
+      "ci95": 0.2,
+      "adjWinRate": 0.21,
+      "avgCells": 159.4,
+      "avgMidCells": 154.7,
+      "avgLateGain": 4.7,
+      "avgKills": 2.12,
+      "avgUnits": 6.33,
+      "avgStock": 5.2,
+      "avgRank": 3.23,
+      "deathRate": 36.2,
+      "conquestRate": 26.66,
+      "conquestWinRate": 0,
+      "earlyRate": 26.61
+    },
+    {
+      "key": "guard",
+      "name": "守门铁壁",
+      "family": "防守",
+      "games": 2037,
+      "wins": 0,
+      "cells": 53920,
+      "midCells": 53115,
+      "kills": 10394,
+      "units": 13460,
+      "stock": 0,
+      "dead": 76,
+      "rankSum": 7381,
+      "conquestGames": 43,
+      "conquestWins": 0,
+      "earlyGames": 44,
+      "pos": [
+        {
+          "pos": "A",
+          "games": 519,
+          "winRate": 0,
+          "avgCells": 25
+        },
+        {
+          "pos": "B",
+          "games": 499,
+          "winRate": 0,
+          "avgCells": 26
+        },
+        {
+          "pos": "C",
+          "games": 489,
+          "winRate": 0,
+          "avgCells": 27.1
+        },
+        {
+          "pos": "D",
+          "games": 530,
+          "winRate": 0,
+          "avgCells": 27.7
+        }
+      ],
+      "winRate": 0,
+      "ci95": 0,
+      "adjWinRate": 0,
+      "avgCells": 26.5,
+      "avgMidCells": 26.1,
+      "avgLateGain": 0.4,
+      "avgKills": 5.1,
+      "avgUnits": 6.61,
+      "avgStock": 0,
+      "avgRank": 3.62,
+      "deathRate": 3.73,
+      "conquestRate": 2.11,
+      "conquestWinRate": 0,
+      "earlyRate": 2.16
+    }
+  ],
+  "families": [
+    {
+      "family": "时机",
+      "strategies": 2,
+      "games": 3971,
+      "winRate": 46.31,
+      "avgCells": 879.6,
+      "avgKills": 3.36
+    },
+    {
+      "family": "军事",
+      "strategies": 4,
+      "games": 7958,
+      "winRate": 37.94,
+      "avgCells": 594.4,
+      "avgKills": 4.19
+    },
+    {
+      "family": "经济",
+      "strategies": 1,
+      "games": 2041,
+      "winRate": 34.35,
+      "avgCells": 517.2,
+      "avgKills": 3.59
+    },
+    {
+      "family": "混合",
+      "strategies": 2,
+      "games": 3828,
+      "winRate": 31.22,
+      "avgCells": 460.5,
+      "avgKills": 3.25
+    },
+    {
+      "family": "扩张",
+      "strategies": 8,
+      "games": 16244,
+      "winRate": 17.65,
+      "avgCells": 337,
+      "avgKills": 2.84
+    },
+    {
+      "family": "防守",
+      "strategies": 3,
+      "games": 5958,
+      "winRate": 6.36,
+      "avgCells": 182.2,
+      "avgKills": 2.91
+    }
+  ],
+  "h2h": {
+    "swarm": {
+      "swarm": {
+        "games": 0,
+        "wins": 0
+      },
+      "ring": {
+        "games": 304,
+        "wins": 1
+      },
+      "mine": {
+        "games": 320,
+        "wins": 1
+      },
+      "spring": {
+        "games": 319,
+        "wins": 0
+      },
+      "fort": {
+        "games": 330,
+        "wins": 0
+      },
+      "decap": {
+        "games": 312,
+        "wins": 0
+      },
+      "guard": {
+        "games": 326,
+        "wins": 9
+      },
+      "border": {
+        "games": 334,
+        "wins": 0
+      },
+      "guerrilla": {
+        "games": 304,
+        "wins": 0
+      },
+      "economy": {
+        "games": 342,
+        "wins": 0
+      },
+      "center": {
+        "games": 332,
+        "wins": 4
+      },
+      "row": {
+        "games": 306,
+        "wins": 4
+      },
+      "column": {
+        "games": 318,
+        "wins": 4
+      },
+      "diag": {
+        "games": 363,
+        "wins": 4
+      },
+      "weak": {
+        "games": 319,
+        "wins": 3
+      },
+      "pacifist": {
+        "games": 314,
+        "wins": 0
+      },
+      "brawler": {
+        "games": 316,
+        "wins": 8
+      },
+      "survivor": {
+        "games": 288,
+        "wins": 6
+      },
+      "late": {
+        "games": 350,
+        "wins": 4
+      },
+      "pendulum": {
+        "games": 314,
+        "wins": 0
+      }
+    },
+    "ring": {
+      "swarm": {
+        "games": 304,
+        "wins": 121
+      },
+      "ring": {
+        "games": 0,
+        "wins": 0
+      },
+      "mine": {
+        "games": 320,
+        "wins": 90
+      },
+      "spring": {
+        "games": 309,
+        "wins": 119
+      },
+      "fort": {
+        "games": 288,
+        "wins": 64
+      },
+      "decap": {
+        "games": 339,
+        "wins": 20
+      },
+      "guard": {
+        "games": 325,
+        "wins": 177
+      },
+      "border": {
+        "games": 321,
+        "wins": 112
+      },
+      "guerrilla": {
+        "games": 314,
+        "wins": 124
+      },
+      "economy": {
+        "games": 313,
+        "wins": 22
+      },
+      "center": {
+        "games": 339,
+        "wins": 136
+      },
+      "row": {
+        "games": 327,
+        "wins": 110
+      },
+      "column": {
+        "games": 324,
+        "wins": 109
+      },
+      "diag": {
+        "games": 347,
+        "wins": 109
+      },
+      "weak": {
+        "games": 318,
+        "wins": 47
+      },
+      "pacifist": {
+        "games": 302,
+        "wins": 115
+      },
+      "brawler": {
+        "games": 309,
+        "wins": 114
+      },
+      "survivor": {
+        "games": 296,
+        "wins": 124
+      },
+      "late": {
+        "games": 331,
+        "wins": 179
+      },
+      "pendulum": {
+        "games": 286,
+        "wins": 61
+      }
+    },
+    "mine": {
+      "swarm": {
+        "games": 320,
+        "wins": 127
+      },
+      "ring": {
+        "games": 320,
+        "wins": 95
+      },
+      "mine": {
+        "games": 0,
+        "wins": 0
+      },
+      "spring": {
+        "games": 323,
+        "wins": 89
+      },
+      "fort": {
+        "games": 310,
+        "wins": 74
+      },
+      "decap": {
+        "games": 338,
+        "wins": 37
+      },
+      "guard": {
+        "games": 335,
+        "wins": 182
+      },
+      "border": {
+        "games": 343,
+        "wins": 162
+      },
+      "guerrilla": {
+        "games": 269,
+        "wins": 91
+      },
+      "economy": {
+        "games": 346,
+        "wins": 25
+      },
+      "center": {
+        "games": 333,
+        "wins": 146
+      },
+      "row": {
+        "games": 337,
+        "wins": 128
+      },
+      "column": {
+        "games": 337,
+        "wins": 134
+      },
+      "diag": {
+        "games": 330,
+        "wins": 165
+      },
+      "weak": {
+        "games": 306,
+        "wins": 79
+      },
+      "pacifist": {
+        "games": 335,
+        "wins": 115
+      },
+      "brawler": {
+        "games": 320,
+        "wins": 145
+      },
+      "survivor": {
+        "games": 327,
+        "wins": 145
+      },
+      "late": {
+        "games": 304,
+        "wins": 120
+      },
+      "pendulum": {
+        "games": 290,
+        "wins": 44
+      }
+    },
+    "spring": {
+      "swarm": {
+        "games": 319,
+        "wins": 133
+      },
+      "ring": {
+        "games": 309,
+        "wins": 78
+      },
+      "mine": {
+        "games": 323,
+        "wins": 77
+      },
+      "spring": {
+        "games": 0,
+        "wins": 0
+      },
+      "fort": {
+        "games": 308,
+        "wins": 46
+      },
+      "decap": {
+        "games": 310,
+        "wins": 16
+      },
+      "guard": {
+        "games": 294,
+        "wins": 134
+      },
+      "border": {
+        "games": 314,
+        "wins": 72
+      },
+      "guerrilla": {
+        "games": 326,
+        "wins": 109
+      },
+      "economy": {
+        "games": 299,
+        "wins": 26
+      },
+      "center": {
+        "games": 304,
+        "wins": 86
+      },
+      "row": {
+        "games": 318,
+        "wins": 94
+      },
+      "column": {
+        "games": 322,
+        "wins": 100
+      },
+      "diag": {
+        "games": 313,
+        "wins": 100
+      },
+      "weak": {
+        "games": 306,
+        "wins": 54
+      },
+      "pacifist": {
+        "games": 304,
+        "wins": 92
+      },
+      "brawler": {
+        "games": 307,
+        "wins": 86
+      },
+      "survivor": {
+        "games": 314,
+        "wins": 121
+      },
+      "late": {
+        "games": 278,
+        "wins": 111
+      },
+      "pendulum": {
+        "games": 294,
+        "wins": 73
+      }
+    },
+    "fort": {
+      "swarm": {
+        "games": 330,
+        "wins": 167
+      },
+      "ring": {
+        "games": 288,
+        "wins": 107
+      },
+      "mine": {
+        "games": 310,
+        "wins": 120
+      },
+      "spring": {
+        "games": 308,
+        "wins": 127
+      },
+      "fort": {
+        "games": 0,
+        "wins": 0
+      },
+      "decap": {
+        "games": 324,
+        "wins": 26
+      },
+      "guard": {
+        "games": 305,
+        "wins": 197
+      },
+      "border": {
+        "games": 330,
+        "wins": 107
+      },
+      "guerrilla": {
+        "games": 324,
+        "wins": 133
+      },
+      "economy": {
+        "games": 310,
+        "wins": 45
+      },
+      "center": {
+        "games": 327,
+        "wins": 144
+      },
+      "row": {
+        "games": 296,
+        "wins": 133
+      },
+      "column": {
+        "games": 315,
+        "wins": 116
+      },
+      "diag": {
+        "games": 342,
+        "wins": 139
+      },
+      "weak": {
+        "games": 331,
+        "wins": 99
+      },
+      "pacifist": {
+        "games": 309,
+        "wins": 139
+      },
+      "brawler": {
+        "games": 322,
+        "wins": 132
+      },
+      "survivor": {
+        "games": 317,
+        "wins": 175
+      },
+      "late": {
+        "games": 320,
+        "wins": 164
+      },
+      "pendulum": {
+        "games": 298,
+        "wins": 61
+      }
+    },
+    "decap": {
+      "swarm": {
+        "games": 312,
+        "wins": 240
+      },
+      "ring": {
+        "games": 339,
+        "wins": 264
+      },
+      "mine": {
+        "games": 338,
+        "wins": 258
+      },
+      "spring": {
+        "games": 310,
+        "wins": 233
+      },
+      "fort": {
+        "games": 324,
+        "wins": 260
+      },
+      "decap": {
+        "games": 0,
+        "wins": 0
+      },
+      "guard": {
+        "games": 329,
+        "wins": 195
+      },
+      "border": {
+        "games": 323,
+        "wins": 251
+      },
+      "guerrilla": {
+        "games": 294,
+        "wins": 189
+      },
+      "economy": {
+        "games": 310,
+        "wins": 225
+      },
+      "center": {
+        "games": 333,
+        "wins": 268
+      },
+      "row": {
+        "games": 309,
+        "wins": 252
+      },
+      "column": {
+        "games": 335,
+        "wins": 285
+      },
+      "diag": {
+        "games": 304,
+        "wins": 211
+      },
+      "weak": {
+        "games": 300,
+        "wins": 213
+      },
+      "pacifist": {
+        "games": 309,
+        "wins": 249
+      },
+      "brawler": {
+        "games": 312,
+        "wins": 244
+      },
+      "survivor": {
+        "games": 310,
+        "wins": 256
+      },
+      "late": {
+        "games": 293,
+        "wins": 30
+      },
+      "pendulum": {
+        "games": 322,
+        "wins": 245
+      }
+    },
+    "guard": {
+      "swarm": {
+        "games": 326,
+        "wins": 0
+      },
+      "ring": {
+        "games": 325,
+        "wins": 0
+      },
+      "mine": {
+        "games": 335,
+        "wins": 0
+      },
+      "spring": {
+        "games": 294,
+        "wins": 0
+      },
+      "fort": {
+        "games": 305,
+        "wins": 0
+      },
+      "decap": {
+        "games": 329,
+        "wins": 0
+      },
+      "guard": {
+        "games": 0,
+        "wins": 0
+      },
+      "border": {
+        "games": 311,
+        "wins": 0
+      },
+      "guerrilla": {
+        "games": 311,
+        "wins": 0
+      },
+      "economy": {
+        "games": 323,
+        "wins": 0
+      },
+      "center": {
+        "games": 332,
+        "wins": 0
+      },
+      "row": {
+        "games": 318,
+        "wins": 0
+      },
+      "column": {
+        "games": 334,
+        "wins": 0
+      },
+      "diag": {
+        "games": 335,
+        "wins": 0
+      },
+      "weak": {
+        "games": 383,
+        "wins": 0
+      },
+      "pacifist": {
+        "games": 294,
+        "wins": 0
+      },
+      "brawler": {
+        "games": 338,
+        "wins": 0
+      },
+      "survivor": {
+        "games": 322,
+        "wins": 0
+      },
+      "late": {
+        "games": 294,
+        "wins": 0
+      },
+      "pendulum": {
+        "games": 302,
+        "wins": 0
+      }
+    },
+    "border": {
+      "swarm": {
+        "games": 334,
+        "wins": 73
+      },
+      "ring": {
+        "games": 321,
+        "wins": 26
+      },
+      "mine": {
+        "games": 343,
+        "wins": 27
+      },
+      "spring": {
+        "games": 314,
+        "wins": 42
+      },
+      "fort": {
+        "games": 330,
+        "wins": 46
+      },
+      "decap": {
+        "games": 323,
+        "wins": 21
+      },
+      "guard": {
+        "games": 311,
+        "wins": 79
+      },
+      "border": {
+        "games": 0,
+        "wins": 0
+      },
+      "guerrilla": {
+        "games": 323,
+        "wins": 45
+      },
+      "economy": {
+        "games": 326,
+        "wins": 11
+      },
+      "center": {
+        "games": 334,
+        "wins": 67
+      },
+      "row": {
+        "games": 311,
+        "wins": 59
+      },
+      "column": {
+        "games": 333,
+        "wins": 45
+      },
+      "diag": {
+        "games": 344,
+        "wins": 79
+      },
+      "weak": {
+        "games": 321,
+        "wins": 53
+      },
+      "pacifist": {
+        "games": 319,
+        "wins": 51
+      },
+      "brawler": {
+        "games": 309,
+        "wins": 75
+      },
+      "survivor": {
+        "games": 329,
+        "wins": 55
+      },
+      "late": {
+        "games": 319,
+        "wins": 52
+      },
+      "pendulum": {
+        "games": 306,
+        "wins": 39
+      }
+    },
+    "guerrilla": {
+      "swarm": {
+        "games": 304,
+        "wins": 73
+      },
+      "ring": {
+        "games": 314,
+        "wins": 44
+      },
+      "mine": {
+        "games": 269,
+        "wins": 50
+      },
+      "spring": {
+        "games": 326,
+        "wins": 62
+      },
+      "fort": {
+        "games": 324,
+        "wins": 56
+      },
+      "decap": {
+        "games": 294,
+        "wins": 46
+      },
+      "guard": {
+        "games": 311,
+        "wins": 133
+      },
+      "border": {
+        "games": 323,
+        "wins": 85
+      },
+      "guerrilla": {
+        "games": 0,
+        "wins": 0
+      },
+      "economy": {
+        "games": 319,
+        "wins": 23
+      },
+      "center": {
+        "games": 335,
+        "wins": 68
+      },
+      "row": {
+        "games": 283,
+        "wins": 67
+      },
+      "column": {
+        "games": 321,
+        "wins": 60
+      },
+      "diag": {
+        "games": 280,
+        "wins": 98
+      },
+      "weak": {
+        "games": 316,
+        "wins": 63
+      },
+      "pacifist": {
+        "games": 303,
+        "wins": 52
+      },
+      "brawler": {
+        "games": 327,
+        "wins": 108
+      },
+      "survivor": {
+        "games": 285,
+        "wins": 91
+      },
+      "late": {
+        "games": 300,
+        "wins": 75
+      },
+      "pendulum": {
+        "games": 292,
+        "wins": 42
+      }
+    },
+    "economy": {
+      "swarm": {
+        "games": 342,
+        "wins": 250
+      },
+      "ring": {
+        "games": 313,
+        "wins": 225
+      },
+      "mine": {
+        "games": 346,
+        "wins": 230
+      },
+      "spring": {
+        "games": 299,
+        "wins": 221
+      },
+      "fort": {
+        "games": 310,
+        "wins": 198
+      },
+      "decap": {
+        "games": 310,
+        "wins": 38
+      },
+      "guard": {
+        "games": 323,
+        "wins": 129
+      },
+      "border": {
+        "games": 326,
+        "wins": 243
+      },
+      "guerrilla": {
+        "games": 319,
+        "wins": 238
+      },
+      "economy": {
+        "games": 0,
+        "wins": 0
+      },
+      "center": {
+        "games": 305,
+        "wins": 219
+      },
+      "row": {
+        "games": 323,
+        "wins": 219
+      },
+      "column": {
+        "games": 351,
+        "wins": 246
+      },
+      "diag": {
+        "games": 324,
+        "wins": 214
+      },
+      "weak": {
+        "games": 312,
+        "wins": 82
+      },
+      "pacifist": {
+        "games": 306,
+        "wins": 222
+      },
+      "brawler": {
+        "games": 307,
+        "wins": 240
+      },
+      "survivor": {
+        "games": 315,
+        "wins": 225
+      },
+      "late": {
+        "games": 323,
+        "wins": 254
+      },
+      "pendulum": {
+        "games": 300,
+        "wins": 132
+      }
+    },
+    "center": {
+      "swarm": {
+        "games": 332,
+        "wins": 70
+      },
+      "ring": {
+        "games": 339,
+        "wins": 11
+      },
+      "mine": {
+        "games": 333,
+        "wins": 19
+      },
+      "spring": {
+        "games": 304,
+        "wins": 19
+      },
+      "fort": {
+        "games": 327,
+        "wins": 4
+      },
+      "decap": {
+        "games": 333,
+        "wins": 8
+      },
+      "guard": {
+        "games": 332,
+        "wins": 74
+      },
+      "border": {
+        "games": 334,
+        "wins": 29
+      },
+      "guerrilla": {
+        "games": 335,
+        "wins": 36
+      },
+      "economy": {
+        "games": 305,
+        "wins": 8
+      },
+      "center": {
+        "games": 0,
+        "wins": 0
+      },
+      "row": {
+        "games": 331,
+        "wins": 39
+      },
+      "column": {
+        "games": 349,
+        "wins": 41
+      },
+      "diag": {
+        "games": 326,
+        "wins": 25
+      },
+      "weak": {
+        "games": 339,
+        "wins": 31
+      },
+      "pacifist": {
+        "games": 360,
+        "wins": 22
+      },
+      "brawler": {
+        "games": 320,
+        "wins": 26
+      },
+      "survivor": {
+        "games": 309,
+        "wins": 49
+      },
+      "late": {
+        "games": 324,
+        "wins": 49
+      },
+      "pendulum": {
+        "games": 302,
+        "wins": 31
+      }
+    },
+    "row": {
+      "swarm": {
+        "games": 306,
+        "wins": 72
+      },
+      "ring": {
+        "games": 327,
+        "wins": 31
+      },
+      "mine": {
+        "games": 337,
+        "wins": 27
+      },
+      "spring": {
+        "games": 318,
+        "wins": 37
+      },
+      "fort": {
+        "games": 296,
+        "wins": 35
+      },
+      "decap": {
+        "games": 309,
+        "wins": 11
+      },
+      "guard": {
+        "games": 318,
+        "wins": 79
+      },
+      "border": {
+        "games": 311,
+        "wins": 37
+      },
+      "guerrilla": {
+        "games": 283,
+        "wins": 36
+      },
+      "economy": {
+        "games": 323,
+        "wins": 17
+      },
+      "center": {
+        "games": 331,
+        "wins": 73
+      },
+      "row": {
+        "games": 0,
+        "wins": 0
+      },
+      "column": {
+        "games": 299,
+        "wins": 43
+      },
+      "diag": {
+        "games": 334,
+        "wins": 73
+      },
+      "weak": {
+        "games": 287,
+        "wins": 46
+      },
+      "pacifist": {
+        "games": 319,
+        "wins": 58
+      },
+      "brawler": {
+        "games": 299,
+        "wins": 41
+      },
+      "survivor": {
+        "games": 284,
+        "wins": 58
+      },
+      "late": {
+        "games": 276,
+        "wins": 42
+      },
+      "pendulum": {
+        "games": 305,
+        "wins": 33
+      }
+    },
+    "column": {
+      "swarm": {
+        "games": 318,
+        "wins": 60
+      },
+      "ring": {
+        "games": 324,
+        "wins": 44
+      },
+      "mine": {
+        "games": 337,
+        "wins": 32
+      },
+      "spring": {
+        "games": 322,
+        "wins": 49
+      },
+      "fort": {
+        "games": 315,
+        "wins": 32
+      },
+      "decap": {
+        "games": 335,
+        "wins": 14
+      },
+      "guard": {
+        "games": 334,
+        "wins": 102
+      },
+      "border": {
+        "games": 333,
+        "wins": 65
+      },
+      "guerrilla": {
+        "games": 321,
+        "wins": 53
+      },
+      "economy": {
+        "games": 351,
+        "wins": 22
+      },
+      "center": {
+        "games": 349,
+        "wins": 84
+      },
+      "row": {
+        "games": 299,
+        "wins": 61
+      },
+      "column": {
+        "games": 0,
+        "wins": 0
+      },
+      "diag": {
+        "games": 321,
+        "wins": 81
+      },
+      "weak": {
+        "games": 318,
+        "wins": 47
+      },
+      "pacifist": {
+        "games": 321,
+        "wins": 60
+      },
+      "brawler": {
+        "games": 301,
+        "wins": 40
+      },
+      "survivor": {
+        "games": 310,
+        "wins": 63
+      },
+      "late": {
+        "games": 328,
+        "wins": 53
+      },
+      "pendulum": {
+        "games": 295,
+        "wins": 22
+      }
+    },
+    "diag": {
+      "swarm": {
+        "games": 363,
+        "wins": 70
+      },
+      "ring": {
+        "games": 347,
+        "wins": 53
+      },
+      "mine": {
+        "games": 330,
+        "wins": 24
+      },
+      "spring": {
+        "games": 313,
+        "wins": 39
+      },
+      "fort": {
+        "games": 342,
+        "wins": 44
+      },
+      "decap": {
+        "games": 304,
+        "wins": 19
+      },
+      "guard": {
+        "games": 335,
+        "wins": 78
+      },
+      "border": {
+        "games": 344,
+        "wins": 55
+      },
+      "guerrilla": {
+        "games": 280,
+        "wins": 28
+      },
+      "economy": {
+        "games": 324,
+        "wins": 22
+      },
+      "center": {
+        "games": 326,
+        "wins": 48
+      },
+      "row": {
+        "games": 334,
+        "wins": 47
+      },
+      "column": {
+        "games": 321,
+        "wins": 55
+      },
+      "diag": {
+        "games": 0,
+        "wins": 0
+      },
+      "weak": {
+        "games": 304,
+        "wins": 61
+      },
+      "pacifist": {
+        "games": 329,
+        "wins": 49
+      },
+      "brawler": {
+        "games": 340,
+        "wins": 67
+      },
+      "survivor": {
+        "games": 330,
+        "wins": 65
+      },
+      "late": {
+        "games": 334,
+        "wins": 35
+      },
+      "pendulum": {
+        "games": 325,
+        "wins": 41
+      }
+    },
+    "weak": {
+      "swarm": {
+        "games": 319,
+        "wins": 143
+      },
+      "ring": {
+        "games": 318,
+        "wins": 161
+      },
+      "mine": {
+        "games": 306,
+        "wins": 145
+      },
+      "spring": {
+        "games": 306,
+        "wins": 130
+      },
+      "fort": {
+        "games": 331,
+        "wins": 143
+      },
+      "decap": {
+        "games": 300,
+        "wins": 37
+      },
+      "guard": {
+        "games": 383,
+        "wins": 24
+      },
+      "border": {
+        "games": 321,
+        "wins": 172
+      },
+      "guerrilla": {
+        "games": 316,
+        "wins": 133
+      },
+      "economy": {
+        "games": 312,
+        "wins": 148
+      },
+      "center": {
+        "games": 339,
+        "wins": 165
+      },
+      "row": {
+        "games": 287,
+        "wins": 150
+      },
+      "column": {
+        "games": 318,
+        "wins": 160
+      },
+      "diag": {
+        "games": 304,
+        "wins": 104
+      },
+      "weak": {
+        "games": 0,
+        "wins": 0
+      },
+      "pacifist": {
+        "games": 312,
+        "wins": 169
+      },
+      "brawler": {
+        "games": 320,
+        "wins": 121
+      },
+      "survivor": {
+        "games": 312,
+        "wins": 137
+      },
+      "late": {
+        "games": 303,
+        "wins": 20
+      },
+      "pendulum": {
+        "games": 323,
+        "wins": 141
+      }
+    },
+    "pacifist": {
+      "swarm": {
+        "games": 314,
+        "wins": 88
+      },
+      "ring": {
+        "games": 302,
+        "wins": 33
+      },
+      "mine": {
+        "games": 335,
+        "wins": 31
+      },
+      "spring": {
+        "games": 304,
+        "wins": 53
+      },
+      "fort": {
+        "games": 309,
+        "wins": 17
+      },
+      "decap": {
+        "games": 309,
+        "wins": 17
+      },
+      "guard": {
+        "games": 294,
+        "wins": 105
+      },
+      "border": {
+        "games": 319,
+        "wins": 66
+      },
+      "guerrilla": {
+        "games": 303,
+        "wins": 75
+      },
+      "economy": {
+        "games": 306,
+        "wins": 11
+      },
+      "center": {
+        "games": 360,
+        "wins": 98
+      },
+      "row": {
+        "games": 319,
+        "wins": 57
+      },
+      "column": {
+        "games": 321,
+        "wins": 53
+      },
+      "diag": {
+        "games": 329,
+        "wins": 75
+      },
+      "weak": {
+        "games": 312,
+        "wins": 40
+      },
+      "pacifist": {
+        "games": 0,
+        "wins": 0
+      },
+      "brawler": {
+        "games": 301,
+        "wins": 70
+      },
+      "survivor": {
+        "games": 310,
+        "wins": 99
+      },
+      "late": {
+        "games": 315,
+        "wins": 88
+      },
+      "pendulum": {
+        "games": 284,
+        "wins": 49
+      }
+    },
+    "brawler": {
+      "swarm": {
+        "games": 316,
+        "wins": 54
+      },
+      "ring": {
+        "games": 309,
+        "wins": 18
+      },
+      "mine": {
+        "games": 320,
+        "wins": 12
+      },
+      "spring": {
+        "games": 307,
+        "wins": 26
+      },
+      "fort": {
+        "games": 322,
+        "wins": 24
+      },
+      "decap": {
+        "games": 312,
+        "wins": 14
+      },
+      "guard": {
+        "games": 338,
+        "wins": 70
+      },
+      "border": {
+        "games": 309,
+        "wins": 41
+      },
+      "guerrilla": {
+        "games": 327,
+        "wins": 20
+      },
+      "economy": {
+        "games": 307,
+        "wins": 10
+      },
+      "center": {
+        "games": 320,
+        "wins": 50
+      },
+      "row": {
+        "games": 299,
+        "wins": 52
+      },
+      "column": {
+        "games": 301,
+        "wins": 44
+      },
+      "diag": {
+        "games": 340,
+        "wins": 44
+      },
+      "weak": {
+        "games": 320,
+        "wins": 69
+      },
+      "pacifist": {
+        "games": 301,
+        "wins": 32
+      },
+      "brawler": {
+        "games": 0,
+        "wins": 0
+      },
+      "survivor": {
+        "games": 313,
+        "wins": 41
+      },
+      "late": {
+        "games": 321,
+        "wins": 16
+      },
+      "pendulum": {
+        "games": 294,
+        "wins": 41
+      }
+    },
+    "survivor": {
+      "swarm": {
+        "games": 288,
+        "wins": 0
+      },
+      "ring": {
+        "games": 296,
+        "wins": 0
+      },
+      "mine": {
+        "games": 327,
+        "wins": 0
+      },
+      "spring": {
+        "games": 314,
+        "wins": 0
+      },
+      "fort": {
+        "games": 317,
+        "wins": 0
+      },
+      "decap": {
+        "games": 310,
+        "wins": 0
+      },
+      "guard": {
+        "games": 322,
+        "wins": 4
+      },
+      "border": {
+        "games": 329,
+        "wins": 0
+      },
+      "guerrilla": {
+        "games": 285,
+        "wins": 0
+      },
+      "economy": {
+        "games": 315,
+        "wins": 0
+      },
+      "center": {
+        "games": 309,
+        "wins": 0
+      },
+      "row": {
+        "games": 284,
+        "wins": 0
+      },
+      "column": {
+        "games": 310,
+        "wins": 1
+      },
+      "diag": {
+        "games": 330,
+        "wins": 2
+      },
+      "weak": {
+        "games": 312,
+        "wins": 1
+      },
+      "pacifist": {
+        "games": 310,
+        "wins": 0
+      },
+      "brawler": {
+        "games": 313,
+        "wins": 3
+      },
+      "survivor": {
+        "games": 0,
+        "wins": 0
+      },
+      "late": {
+        "games": 283,
+        "wins": 1
+      },
+      "pendulum": {
+        "games": 263,
+        "wins": 0
+      }
+    },
+    "late": {
+      "swarm": {
+        "games": 350,
+        "wins": 116
+      },
+      "ring": {
+        "games": 331,
+        "wins": 45
+      },
+      "mine": {
+        "games": 304,
+        "wins": 54
+      },
+      "spring": {
+        "games": 278,
+        "wins": 58
+      },
+      "fort": {
+        "games": 320,
+        "wins": 53
+      },
+      "decap": {
+        "games": 293,
+        "wins": 188
+      },
+      "guard": {
+        "games": 294,
+        "wins": 109
+      },
+      "border": {
+        "games": 319,
+        "wins": 107
+      },
+      "guerrilla": {
+        "games": 300,
+        "wins": 86
+      },
+      "economy": {
+        "games": 323,
+        "wins": 31
+      },
+      "center": {
+        "games": 324,
+        "wins": 101
+      },
+      "row": {
+        "games": 276,
+        "wins": 84
+      },
+      "column": {
+        "games": 328,
+        "wins": 85
+      },
+      "diag": {
+        "games": 334,
+        "wins": 107
+      },
+      "weak": {
+        "games": 303,
+        "wins": 104
+      },
+      "pacifist": {
+        "games": 315,
+        "wins": 64
+      },
+      "brawler": {
+        "games": 321,
+        "wins": 138
+      },
+      "survivor": {
+        "games": 283,
+        "wins": 94
+      },
+      "late": {
+        "games": 0,
+        "wins": 0
+      },
+      "pendulum": {
+        "games": 263,
+        "wins": 68
+      }
+    },
+    "pendulum": {
+      "swarm": {
+        "games": 314,
+        "wins": 164
+      },
+      "ring": {
+        "games": 286,
+        "wins": 117
+      },
+      "mine": {
+        "games": 290,
+        "wins": 143
+      },
+      "spring": {
+        "games": 294,
+        "wins": 114
+      },
+      "fort": {
+        "games": 298,
+        "wins": 129
+      },
+      "decap": {
+        "games": 322,
+        "wins": 34
+      },
+      "guard": {
+        "games": 302,
+        "wins": 157
+      },
+      "border": {
+        "games": 306,
+        "wins": 131
+      },
+      "guerrilla": {
+        "games": 292,
+        "wins": 114
+      },
+      "economy": {
+        "games": 300,
+        "wins": 97
+      },
+      "center": {
+        "games": 302,
+        "wins": 124
+      },
+      "row": {
+        "games": 305,
+        "wins": 115
+      },
+      "column": {
+        "games": 295,
+        "wins": 135
+      },
+      "diag": {
+        "games": 325,
+        "wins": 145
+      },
+      "weak": {
+        "games": 323,
+        "wins": 117
+      },
+      "pacifist": {
+        "games": 284,
+        "wins": 118
+      },
+      "brawler": {
+        "games": 294,
+        "wins": 108
+      },
+      "survivor": {
+        "games": 263,
+        "wins": 131
+      },
+      "late": {
+        "games": 263,
+        "wins": 96
+      },
+      "pendulum": {
+        "games": 0,
+        "wins": 0
+      }
+    }
+  },
+  "pairs": [
+    {
+      "a": "swarm",
+      "b": "ring",
+      "games": 304,
+      "aWinRate": 0.33,
+      "bWinRate": 39.8,
+      "gap": -39.47
+    },
+    {
+      "a": "swarm",
+      "b": "mine",
+      "games": 320,
+      "aWinRate": 0.31,
+      "bWinRate": 39.69,
+      "gap": -39.38
+    },
+    {
+      "a": "swarm",
+      "b": "spring",
+      "games": 319,
+      "aWinRate": 0,
+      "bWinRate": 41.69,
+      "gap": -41.69
+    },
+    {
+      "a": "swarm",
+      "b": "fort",
+      "games": 330,
+      "aWinRate": 0,
+      "bWinRate": 50.61,
+      "gap": -50.61
+    },
+    {
+      "a": "swarm",
+      "b": "decap",
+      "games": 312,
+      "aWinRate": 0,
+      "bWinRate": 76.92,
+      "gap": -76.92
+    },
+    {
+      "a": "swarm",
+      "b": "guard",
+      "games": 326,
+      "aWinRate": 2.76,
+      "bWinRate": 0,
+      "gap": 2.76
+    },
+    {
+      "a": "swarm",
+      "b": "border",
+      "games": 334,
+      "aWinRate": 0,
+      "bWinRate": 21.86,
+      "gap": -21.86
+    },
+    {
+      "a": "swarm",
+      "b": "guerrilla",
+      "games": 304,
+      "aWinRate": 0,
+      "bWinRate": 24.01,
+      "gap": -24.01
+    },
+    {
+      "a": "swarm",
+      "b": "economy",
+      "games": 342,
+      "aWinRate": 0,
+      "bWinRate": 73.1,
+      "gap": -73.1
+    },
+    {
+      "a": "swarm",
+      "b": "center",
+      "games": 332,
+      "aWinRate": 1.2,
+      "bWinRate": 21.08,
+      "gap": -19.88
+    },
+    {
+      "a": "swarm",
+      "b": "row",
+      "games": 306,
+      "aWinRate": 1.31,
+      "bWinRate": 23.53,
+      "gap": -22.22
+    },
+    {
+      "a": "swarm",
+      "b": "column",
+      "games": 318,
+      "aWinRate": 1.26,
+      "bWinRate": 18.87,
+      "gap": -17.61
+    },
+    {
+      "a": "swarm",
+      "b": "diag",
+      "games": 363,
+      "aWinRate": 1.1,
+      "bWinRate": 19.28,
+      "gap": -18.18
+    },
+    {
+      "a": "swarm",
+      "b": "weak",
+      "games": 319,
+      "aWinRate": 0.94,
+      "bWinRate": 44.83,
+      "gap": -43.89
+    },
+    {
+      "a": "swarm",
+      "b": "pacifist",
+      "games": 314,
+      "aWinRate": 0,
+      "bWinRate": 28.03,
+      "gap": -28.03
+    },
+    {
+      "a": "swarm",
+      "b": "brawler",
+      "games": 316,
+      "aWinRate": 2.53,
+      "bWinRate": 17.09,
+      "gap": -14.56
+    },
+    {
+      "a": "swarm",
+      "b": "survivor",
+      "games": 288,
+      "aWinRate": 2.08,
+      "bWinRate": 0,
+      "gap": 2.08
+    },
+    {
+      "a": "swarm",
+      "b": "late",
+      "games": 350,
+      "aWinRate": 1.14,
+      "bWinRate": 33.14,
+      "gap": -32
+    },
+    {
+      "a": "swarm",
+      "b": "pendulum",
+      "games": 314,
+      "aWinRate": 0,
+      "bWinRate": 52.23,
+      "gap": -52.23
+    },
+    {
+      "a": "ring",
+      "b": "mine",
+      "games": 320,
+      "aWinRate": 28.13,
+      "bWinRate": 29.69,
+      "gap": -1.56
+    },
+    {
+      "a": "ring",
+      "b": "spring",
+      "games": 309,
+      "aWinRate": 38.51,
+      "bWinRate": 25.24,
+      "gap": 13.27
+    },
+    {
+      "a": "ring",
+      "b": "fort",
+      "games": 288,
+      "aWinRate": 22.22,
+      "bWinRate": 37.15,
+      "gap": -14.93
+    },
+    {
+      "a": "ring",
+      "b": "decap",
+      "games": 339,
+      "aWinRate": 5.9,
+      "bWinRate": 77.88,
+      "gap": -71.98
+    },
+    {
+      "a": "ring",
+      "b": "guard",
+      "games": 325,
+      "aWinRate": 54.46,
+      "bWinRate": 0,
+      "gap": 54.46
+    },
+    {
+      "a": "ring",
+      "b": "border",
+      "games": 321,
+      "aWinRate": 34.89,
+      "bWinRate": 8.1,
+      "gap": 26.79
+    },
+    {
+      "a": "ring",
+      "b": "guerrilla",
+      "games": 314,
+      "aWinRate": 39.49,
+      "bWinRate": 14.01,
+      "gap": 25.48
+    },
+    {
+      "a": "ring",
+      "b": "economy",
+      "games": 313,
+      "aWinRate": 7.03,
+      "bWinRate": 71.88,
+      "gap": -64.85
+    },
+    {
+      "a": "ring",
+      "b": "center",
+      "games": 339,
+      "aWinRate": 40.12,
+      "bWinRate": 3.24,
+      "gap": 36.88
+    },
+    {
+      "a": "ring",
+      "b": "row",
+      "games": 327,
+      "aWinRate": 33.64,
+      "bWinRate": 9.48,
+      "gap": 24.16
+    },
+    {
+      "a": "ring",
+      "b": "column",
+      "games": 324,
+      "aWinRate": 33.64,
+      "bWinRate": 13.58,
+      "gap": 20.06
+    },
+    {
+      "a": "ring",
+      "b": "diag",
+      "games": 347,
+      "aWinRate": 31.41,
+      "bWinRate": 15.27,
+      "gap": 16.14
+    },
+    {
+      "a": "ring",
+      "b": "weak",
+      "games": 318,
+      "aWinRate": 14.78,
+      "bWinRate": 50.63,
+      "gap": -35.85
+    },
+    {
+      "a": "ring",
+      "b": "pacifist",
+      "games": 302,
+      "aWinRate": 38.08,
+      "bWinRate": 10.93,
+      "gap": 27.15
+    },
+    {
+      "a": "ring",
+      "b": "brawler",
+      "games": 309,
+      "aWinRate": 36.89,
+      "bWinRate": 5.83,
+      "gap": 31.06
+    },
+    {
+      "a": "ring",
+      "b": "survivor",
+      "games": 296,
+      "aWinRate": 41.89,
+      "bWinRate": 0,
+      "gap": 41.89
+    },
+    {
+      "a": "ring",
+      "b": "late",
+      "games": 331,
+      "aWinRate": 54.08,
+      "bWinRate": 13.6,
+      "gap": 40.48
+    },
+    {
+      "a": "ring",
+      "b": "pendulum",
+      "games": 286,
+      "aWinRate": 21.33,
+      "bWinRate": 40.91,
+      "gap": -19.58
+    },
+    {
+      "a": "mine",
+      "b": "spring",
+      "games": 323,
+      "aWinRate": 27.55,
+      "bWinRate": 23.84,
+      "gap": 3.71
+    },
+    {
+      "a": "mine",
+      "b": "fort",
+      "games": 310,
+      "aWinRate": 23.87,
+      "bWinRate": 38.71,
+      "gap": -14.84
+    },
+    {
+      "a": "mine",
+      "b": "decap",
+      "games": 338,
+      "aWinRate": 10.95,
+      "bWinRate": 76.33,
+      "gap": -65.38
+    },
+    {
+      "a": "mine",
+      "b": "guard",
+      "games": 335,
+      "aWinRate": 54.33,
+      "bWinRate": 0,
+      "gap": 54.33
+    },
+    {
+      "a": "mine",
+      "b": "border",
+      "games": 343,
+      "aWinRate": 47.23,
+      "bWinRate": 7.87,
+      "gap": 39.36
+    },
+    {
+      "a": "mine",
+      "b": "guerrilla",
+      "games": 269,
+      "aWinRate": 33.83,
+      "bWinRate": 18.59,
+      "gap": 15.24
+    },
+    {
+      "a": "mine",
+      "b": "economy",
+      "games": 346,
+      "aWinRate": 7.23,
+      "bWinRate": 66.47,
+      "gap": -59.24
+    },
+    {
+      "a": "mine",
+      "b": "center",
+      "games": 333,
+      "aWinRate": 43.84,
+      "bWinRate": 5.71,
+      "gap": 38.13
+    },
+    {
+      "a": "mine",
+      "b": "row",
+      "games": 337,
+      "aWinRate": 37.98,
+      "bWinRate": 8.01,
+      "gap": 29.97
+    },
+    {
+      "a": "mine",
+      "b": "column",
+      "games": 337,
+      "aWinRate": 39.76,
+      "bWinRate": 9.5,
+      "gap": 30.26
+    },
+    {
+      "a": "mine",
+      "b": "diag",
+      "games": 330,
+      "aWinRate": 50,
+      "bWinRate": 7.27,
+      "gap": 42.73
+    },
+    {
+      "a": "mine",
+      "b": "weak",
+      "games": 306,
+      "aWinRate": 25.82,
+      "bWinRate": 47.39,
+      "gap": -21.57
+    },
+    {
+      "a": "mine",
+      "b": "pacifist",
+      "games": 335,
+      "aWinRate": 34.33,
+      "bWinRate": 9.25,
+      "gap": 25.08
+    },
+    {
+      "a": "mine",
+      "b": "brawler",
+      "games": 320,
+      "aWinRate": 45.31,
+      "bWinRate": 3.75,
+      "gap": 41.56
+    },
+    {
+      "a": "mine",
+      "b": "survivor",
+      "games": 327,
+      "aWinRate": 44.34,
+      "bWinRate": 0,
+      "gap": 44.34
+    },
+    {
+      "a": "mine",
+      "b": "late",
+      "games": 304,
+      "aWinRate": 39.47,
+      "bWinRate": 17.76,
+      "gap": 21.71
+    },
+    {
+      "a": "mine",
+      "b": "pendulum",
+      "games": 290,
+      "aWinRate": 15.17,
+      "bWinRate": 49.31,
+      "gap": -34.14
+    },
+    {
+      "a": "spring",
+      "b": "fort",
+      "games": 308,
+      "aWinRate": 14.94,
+      "bWinRate": 41.23,
+      "gap": -26.29
+    },
+    {
+      "a": "spring",
+      "b": "decap",
+      "games": 310,
+      "aWinRate": 5.16,
+      "bWinRate": 75.16,
+      "gap": -70
+    },
+    {
+      "a": "spring",
+      "b": "guard",
+      "games": 294,
+      "aWinRate": 45.58,
+      "bWinRate": 0,
+      "gap": 45.58
+    },
+    {
+      "a": "spring",
+      "b": "border",
+      "games": 314,
+      "aWinRate": 22.93,
+      "bWinRate": 13.38,
+      "gap": 9.55
+    },
+    {
+      "a": "spring",
+      "b": "guerrilla",
+      "games": 326,
+      "aWinRate": 33.44,
+      "bWinRate": 19.02,
+      "gap": 14.42
+    },
+    {
+      "a": "spring",
+      "b": "economy",
+      "games": 299,
+      "aWinRate": 8.7,
+      "bWinRate": 73.91,
+      "gap": -65.21
+    },
+    {
+      "a": "spring",
+      "b": "center",
+      "games": 304,
+      "aWinRate": 28.29,
+      "bWinRate": 6.25,
+      "gap": 22.04
+    },
+    {
+      "a": "spring",
+      "b": "row",
+      "games": 318,
+      "aWinRate": 29.56,
+      "bWinRate": 11.64,
+      "gap": 17.92
+    },
+    {
+      "a": "spring",
+      "b": "column",
+      "games": 322,
+      "aWinRate": 31.06,
+      "bWinRate": 15.22,
+      "gap": 15.84
+    },
+    {
+      "a": "spring",
+      "b": "diag",
+      "games": 313,
+      "aWinRate": 31.95,
+      "bWinRate": 12.46,
+      "gap": 19.49
+    },
+    {
+      "a": "spring",
+      "b": "weak",
+      "games": 306,
+      "aWinRate": 17.65,
+      "bWinRate": 42.48,
+      "gap": -24.83
+    },
+    {
+      "a": "spring",
+      "b": "pacifist",
+      "games": 304,
+      "aWinRate": 30.26,
+      "bWinRate": 17.43,
+      "gap": 12.83
+    },
+    {
+      "a": "spring",
+      "b": "brawler",
+      "games": 307,
+      "aWinRate": 28.01,
+      "bWinRate": 8.47,
+      "gap": 19.54
+    },
+    {
+      "a": "spring",
+      "b": "survivor",
+      "games": 314,
+      "aWinRate": 38.54,
+      "bWinRate": 0,
+      "gap": 38.54
+    },
+    {
+      "a": "spring",
+      "b": "late",
+      "games": 278,
+      "aWinRate": 39.93,
+      "bWinRate": 20.86,
+      "gap": 19.07
+    },
+    {
+      "a": "spring",
+      "b": "pendulum",
+      "games": 294,
+      "aWinRate": 24.83,
+      "bWinRate": 38.78,
+      "gap": -13.95
+    },
+    {
+      "a": "fort",
+      "b": "decap",
+      "games": 324,
+      "aWinRate": 8.02,
+      "bWinRate": 80.25,
+      "gap": -72.23
+    },
+    {
+      "a": "fort",
+      "b": "guard",
+      "games": 305,
+      "aWinRate": 64.59,
+      "bWinRate": 0,
+      "gap": 64.59
+    },
+    {
+      "a": "fort",
+      "b": "border",
+      "games": 330,
+      "aWinRate": 32.42,
+      "bWinRate": 13.94,
+      "gap": 18.48
+    },
+    {
+      "a": "fort",
+      "b": "guerrilla",
+      "games": 324,
+      "aWinRate": 41.05,
+      "bWinRate": 17.28,
+      "gap": 23.77
+    },
+    {
+      "a": "fort",
+      "b": "economy",
+      "games": 310,
+      "aWinRate": 14.52,
+      "bWinRate": 63.87,
+      "gap": -49.35
+    },
+    {
+      "a": "fort",
+      "b": "center",
+      "games": 327,
+      "aWinRate": 44.04,
+      "bWinRate": 1.22,
+      "gap": 42.82
+    },
+    {
+      "a": "fort",
+      "b": "row",
+      "games": 296,
+      "aWinRate": 44.93,
+      "bWinRate": 11.82,
+      "gap": 33.11
+    },
+    {
+      "a": "fort",
+      "b": "column",
+      "games": 315,
+      "aWinRate": 36.83,
+      "bWinRate": 10.16,
+      "gap": 26.67
+    },
+    {
+      "a": "fort",
+      "b": "diag",
+      "games": 342,
+      "aWinRate": 40.64,
+      "bWinRate": 12.87,
+      "gap": 27.77
+    },
+    {
+      "a": "fort",
+      "b": "weak",
+      "games": 331,
+      "aWinRate": 29.91,
+      "bWinRate": 43.2,
+      "gap": -13.29
+    },
+    {
+      "a": "fort",
+      "b": "pacifist",
+      "games": 309,
+      "aWinRate": 44.98,
+      "bWinRate": 5.5,
+      "gap": 39.48
+    },
+    {
+      "a": "fort",
+      "b": "brawler",
+      "games": 322,
+      "aWinRate": 40.99,
+      "bWinRate": 7.45,
+      "gap": 33.54
+    },
+    {
+      "a": "fort",
+      "b": "survivor",
+      "games": 317,
+      "aWinRate": 55.21,
+      "bWinRate": 0,
+      "gap": 55.21
+    },
+    {
+      "a": "fort",
+      "b": "late",
+      "games": 320,
+      "aWinRate": 51.25,
+      "bWinRate": 16.56,
+      "gap": 34.69
+    },
+    {
+      "a": "fort",
+      "b": "pendulum",
+      "games": 298,
+      "aWinRate": 20.47,
+      "bWinRate": 43.29,
+      "gap": -22.82
+    },
+    {
+      "a": "decap",
+      "b": "guard",
+      "games": 329,
+      "aWinRate": 59.27,
+      "bWinRate": 0,
+      "gap": 59.27
+    },
+    {
+      "a": "decap",
+      "b": "border",
+      "games": 323,
+      "aWinRate": 77.71,
+      "bWinRate": 6.5,
+      "gap": 71.21
+    },
+    {
+      "a": "decap",
+      "b": "guerrilla",
+      "games": 294,
+      "aWinRate": 64.29,
+      "bWinRate": 15.65,
+      "gap": 48.64
+    },
+    {
+      "a": "decap",
+      "b": "economy",
+      "games": 310,
+      "aWinRate": 72.58,
+      "bWinRate": 12.26,
+      "gap": 60.32
+    },
+    {
+      "a": "decap",
+      "b": "center",
+      "games": 333,
+      "aWinRate": 80.48,
+      "bWinRate": 2.4,
+      "gap": 78.08
+    },
+    {
+      "a": "decap",
+      "b": "row",
+      "games": 309,
+      "aWinRate": 81.55,
+      "bWinRate": 3.56,
+      "gap": 77.99
+    },
+    {
+      "a": "decap",
+      "b": "column",
+      "games": 335,
+      "aWinRate": 85.07,
+      "bWinRate": 4.18,
+      "gap": 80.89
+    },
+    {
+      "a": "decap",
+      "b": "diag",
+      "games": 304,
+      "aWinRate": 69.41,
+      "bWinRate": 6.25,
+      "gap": 63.16
+    },
+    {
+      "a": "decap",
+      "b": "weak",
+      "games": 300,
+      "aWinRate": 71,
+      "bWinRate": 12.33,
+      "gap": 58.67
+    },
+    {
+      "a": "decap",
+      "b": "pacifist",
+      "games": 309,
+      "aWinRate": 80.58,
+      "bWinRate": 5.5,
+      "gap": 75.08
+    },
+    {
+      "a": "decap",
+      "b": "brawler",
+      "games": 312,
+      "aWinRate": 78.21,
+      "bWinRate": 4.49,
+      "gap": 73.72
+    },
+    {
+      "a": "decap",
+      "b": "survivor",
+      "games": 310,
+      "aWinRate": 82.58,
+      "bWinRate": 0,
+      "gap": 82.58
+    },
+    {
+      "a": "decap",
+      "b": "late",
+      "games": 293,
+      "aWinRate": 10.24,
+      "bWinRate": 64.16,
+      "gap": -53.92
+    },
+    {
+      "a": "decap",
+      "b": "pendulum",
+      "games": 322,
+      "aWinRate": 76.09,
+      "bWinRate": 10.56,
+      "gap": 65.53
+    },
+    {
+      "a": "guard",
+      "b": "border",
+      "games": 311,
+      "aWinRate": 0,
+      "bWinRate": 25.4,
+      "gap": -25.4
+    },
+    {
+      "a": "guard",
+      "b": "guerrilla",
+      "games": 311,
+      "aWinRate": 0,
+      "bWinRate": 42.77,
+      "gap": -42.77
+    },
+    {
+      "a": "guard",
+      "b": "economy",
+      "games": 323,
+      "aWinRate": 0,
+      "bWinRate": 39.94,
+      "gap": -39.94
+    },
+    {
+      "a": "guard",
+      "b": "center",
+      "games": 332,
+      "aWinRate": 0,
+      "bWinRate": 22.29,
+      "gap": -22.29
+    },
+    {
+      "a": "guard",
+      "b": "row",
+      "games": 318,
+      "aWinRate": 0,
+      "bWinRate": 24.84,
+      "gap": -24.84
+    },
+    {
+      "a": "guard",
+      "b": "column",
+      "games": 334,
+      "aWinRate": 0,
+      "bWinRate": 30.54,
+      "gap": -30.54
+    },
+    {
+      "a": "guard",
+      "b": "diag",
+      "games": 335,
+      "aWinRate": 0,
+      "bWinRate": 23.28,
+      "gap": -23.28
+    },
+    {
+      "a": "guard",
+      "b": "weak",
+      "games": 383,
+      "aWinRate": 0,
+      "bWinRate": 6.27,
+      "gap": -6.27
+    },
+    {
+      "a": "guard",
+      "b": "pacifist",
+      "games": 294,
+      "aWinRate": 0,
+      "bWinRate": 35.71,
+      "gap": -35.71
+    },
+    {
+      "a": "guard",
+      "b": "brawler",
+      "games": 338,
+      "aWinRate": 0,
+      "bWinRate": 20.71,
+      "gap": -20.71
+    },
+    {
+      "a": "guard",
+      "b": "survivor",
+      "games": 322,
+      "aWinRate": 0,
+      "bWinRate": 1.24,
+      "gap": -1.24
+    },
+    {
+      "a": "guard",
+      "b": "late",
+      "games": 294,
+      "aWinRate": 0,
+      "bWinRate": 37.07,
+      "gap": -37.07
+    },
+    {
+      "a": "guard",
+      "b": "pendulum",
+      "games": 302,
+      "aWinRate": 0,
+      "bWinRate": 51.99,
+      "gap": -51.99
+    },
+    {
+      "a": "border",
+      "b": "guerrilla",
+      "games": 323,
+      "aWinRate": 13.93,
+      "bWinRate": 26.32,
+      "gap": -12.39
+    },
+    {
+      "a": "border",
+      "b": "economy",
+      "games": 326,
+      "aWinRate": 3.37,
+      "bWinRate": 74.54,
+      "gap": -71.17
+    },
+    {
+      "a": "border",
+      "b": "center",
+      "games": 334,
+      "aWinRate": 20.06,
+      "bWinRate": 8.68,
+      "gap": 11.38
+    },
+    {
+      "a": "border",
+      "b": "row",
+      "games": 311,
+      "aWinRate": 18.97,
+      "bWinRate": 11.9,
+      "gap": 7.07
+    },
+    {
+      "a": "border",
+      "b": "column",
+      "games": 333,
+      "aWinRate": 13.51,
+      "bWinRate": 19.52,
+      "gap": -6.01
+    },
+    {
+      "a": "border",
+      "b": "diag",
+      "games": 344,
+      "aWinRate": 22.97,
+      "bWinRate": 15.99,
+      "gap": 6.98
+    },
+    {
+      "a": "border",
+      "b": "weak",
+      "games": 321,
+      "aWinRate": 16.51,
+      "bWinRate": 53.58,
+      "gap": -37.07
+    },
+    {
+      "a": "border",
+      "b": "pacifist",
+      "games": 319,
+      "aWinRate": 15.99,
+      "bWinRate": 20.69,
+      "gap": -4.7
+    },
+    {
+      "a": "border",
+      "b": "brawler",
+      "games": 309,
+      "aWinRate": 24.27,
+      "bWinRate": 13.27,
+      "gap": 11
+    },
+    {
+      "a": "border",
+      "b": "survivor",
+      "games": 329,
+      "aWinRate": 16.72,
+      "bWinRate": 0,
+      "gap": 16.72
+    },
+    {
+      "a": "border",
+      "b": "late",
+      "games": 319,
+      "aWinRate": 16.3,
+      "bWinRate": 33.54,
+      "gap": -17.24
+    },
+    {
+      "a": "border",
+      "b": "pendulum",
+      "games": 306,
+      "aWinRate": 12.75,
+      "bWinRate": 42.81,
+      "gap": -30.06
+    },
+    {
+      "a": "guerrilla",
+      "b": "economy",
+      "games": 319,
+      "aWinRate": 7.21,
+      "bWinRate": 74.61,
+      "gap": -67.4
+    },
+    {
+      "a": "guerrilla",
+      "b": "center",
+      "games": 335,
+      "aWinRate": 20.3,
+      "bWinRate": 10.75,
+      "gap": 9.55
+    },
+    {
+      "a": "guerrilla",
+      "b": "row",
+      "games": 283,
+      "aWinRate": 23.67,
+      "bWinRate": 12.72,
+      "gap": 10.95
+    },
+    {
+      "a": "guerrilla",
+      "b": "column",
+      "games": 321,
+      "aWinRate": 18.69,
+      "bWinRate": 16.51,
+      "gap": 2.18
+    },
+    {
+      "a": "guerrilla",
+      "b": "diag",
+      "games": 280,
+      "aWinRate": 35,
+      "bWinRate": 10,
+      "gap": 25
+    },
+    {
+      "a": "guerrilla",
+      "b": "weak",
+      "games": 316,
+      "aWinRate": 19.94,
+      "bWinRate": 42.09,
+      "gap": -22.15
+    },
+    {
+      "a": "guerrilla",
+      "b": "pacifist",
+      "games": 303,
+      "aWinRate": 17.16,
+      "bWinRate": 24.75,
+      "gap": -7.59
+    },
+    {
+      "a": "guerrilla",
+      "b": "brawler",
+      "games": 327,
+      "aWinRate": 33.03,
+      "bWinRate": 6.12,
+      "gap": 26.91
+    },
+    {
+      "a": "guerrilla",
+      "b": "survivor",
+      "games": 285,
+      "aWinRate": 31.93,
+      "bWinRate": 0,
+      "gap": 31.93
+    },
+    {
+      "a": "guerrilla",
+      "b": "late",
+      "games": 300,
+      "aWinRate": 25,
+      "bWinRate": 28.67,
+      "gap": -3.67
+    },
+    {
+      "a": "guerrilla",
+      "b": "pendulum",
+      "games": 292,
+      "aWinRate": 14.38,
+      "bWinRate": 39.04,
+      "gap": -24.66
+    },
+    {
+      "a": "economy",
+      "b": "center",
+      "games": 305,
+      "aWinRate": 71.8,
+      "bWinRate": 2.62,
+      "gap": 69.18
+    },
+    {
+      "a": "economy",
+      "b": "row",
+      "games": 323,
+      "aWinRate": 67.8,
+      "bWinRate": 5.26,
+      "gap": 62.54
+    },
+    {
+      "a": "economy",
+      "b": "column",
+      "games": 351,
+      "aWinRate": 70.09,
+      "bWinRate": 6.27,
+      "gap": 63.82
+    },
+    {
+      "a": "economy",
+      "b": "diag",
+      "games": 324,
+      "aWinRate": 66.05,
+      "bWinRate": 6.79,
+      "gap": 59.26
+    },
+    {
+      "a": "economy",
+      "b": "weak",
+      "games": 312,
+      "aWinRate": 26.28,
+      "bWinRate": 47.44,
+      "gap": -21.16
+    },
+    {
+      "a": "economy",
+      "b": "pacifist",
+      "games": 306,
+      "aWinRate": 72.55,
+      "bWinRate": 3.59,
+      "gap": 68.96
+    },
+    {
+      "a": "economy",
+      "b": "brawler",
+      "games": 307,
+      "aWinRate": 78.18,
+      "bWinRate": 3.26,
+      "gap": 74.92
+    },
+    {
+      "a": "economy",
+      "b": "survivor",
+      "games": 315,
+      "aWinRate": 71.43,
+      "bWinRate": 0,
+      "gap": 71.43
+    },
+    {
+      "a": "economy",
+      "b": "late",
+      "games": 323,
+      "aWinRate": 78.64,
+      "bWinRate": 9.6,
+      "gap": 69.04
+    },
+    {
+      "a": "economy",
+      "b": "pendulum",
+      "games": 300,
+      "aWinRate": 44,
+      "bWinRate": 32.33,
+      "gap": 11.67
+    },
+    {
+      "a": "center",
+      "b": "row",
+      "games": 331,
+      "aWinRate": 11.78,
+      "bWinRate": 22.05,
+      "gap": -10.27
+    },
+    {
+      "a": "center",
+      "b": "column",
+      "games": 349,
+      "aWinRate": 11.75,
+      "bWinRate": 24.07,
+      "gap": -12.32
+    },
+    {
+      "a": "center",
+      "b": "diag",
+      "games": 326,
+      "aWinRate": 7.67,
+      "bWinRate": 14.72,
+      "gap": -7.05
+    },
+    {
+      "a": "center",
+      "b": "weak",
+      "games": 339,
+      "aWinRate": 9.14,
+      "bWinRate": 48.67,
+      "gap": -39.53
+    },
+    {
+      "a": "center",
+      "b": "pacifist",
+      "games": 360,
+      "aWinRate": 6.11,
+      "bWinRate": 27.22,
+      "gap": -21.11
+    },
+    {
+      "a": "center",
+      "b": "brawler",
+      "games": 320,
+      "aWinRate": 8.13,
+      "bWinRate": 15.63,
+      "gap": -7.5
+    },
+    {
+      "a": "center",
+      "b": "survivor",
+      "games": 309,
+      "aWinRate": 15.86,
+      "bWinRate": 0,
+      "gap": 15.86
+    },
+    {
+      "a": "center",
+      "b": "late",
+      "games": 324,
+      "aWinRate": 15.12,
+      "bWinRate": 31.17,
+      "gap": -16.05
+    },
+    {
+      "a": "center",
+      "b": "pendulum",
+      "games": 302,
+      "aWinRate": 10.26,
+      "bWinRate": 41.06,
+      "gap": -30.8
+    },
+    {
+      "a": "row",
+      "b": "column",
+      "games": 299,
+      "aWinRate": 14.38,
+      "bWinRate": 20.4,
+      "gap": -6.02
+    },
+    {
+      "a": "row",
+      "b": "diag",
+      "games": 334,
+      "aWinRate": 21.86,
+      "bWinRate": 14.07,
+      "gap": 7.79
+    },
+    {
+      "a": "row",
+      "b": "weak",
+      "games": 287,
+      "aWinRate": 16.03,
+      "bWinRate": 52.26,
+      "gap": -36.23
+    },
+    {
+      "a": "row",
+      "b": "pacifist",
+      "games": 319,
+      "aWinRate": 18.18,
+      "bWinRate": 17.87,
+      "gap": 0.31
+    },
+    {
+      "a": "row",
+      "b": "brawler",
+      "games": 299,
+      "aWinRate": 13.71,
+      "bWinRate": 17.39,
+      "gap": -3.68
+    },
+    {
+      "a": "row",
+      "b": "survivor",
+      "games": 284,
+      "aWinRate": 20.42,
+      "bWinRate": 0,
+      "gap": 20.42
+    },
+    {
+      "a": "row",
+      "b": "late",
+      "games": 276,
+      "aWinRate": 15.22,
+      "bWinRate": 30.43,
+      "gap": -15.21
+    },
+    {
+      "a": "row",
+      "b": "pendulum",
+      "games": 305,
+      "aWinRate": 10.82,
+      "bWinRate": 37.7,
+      "gap": -26.88
+    },
+    {
+      "a": "column",
+      "b": "diag",
+      "games": 321,
+      "aWinRate": 25.23,
+      "bWinRate": 17.13,
+      "gap": 8.1
+    },
+    {
+      "a": "column",
+      "b": "weak",
+      "games": 318,
+      "aWinRate": 14.78,
+      "bWinRate": 50.31,
+      "gap": -35.53
+    },
+    {
+      "a": "column",
+      "b": "pacifist",
+      "games": 321,
+      "aWinRate": 18.69,
+      "bWinRate": 16.51,
+      "gap": 2.18
+    },
+    {
+      "a": "column",
+      "b": "brawler",
+      "games": 301,
+      "aWinRate": 13.29,
+      "bWinRate": 14.62,
+      "gap": -1.33
+    },
+    {
+      "a": "column",
+      "b": "survivor",
+      "games": 310,
+      "aWinRate": 20.32,
+      "bWinRate": 0.32,
+      "gap": 20
+    },
+    {
+      "a": "column",
+      "b": "late",
+      "games": 328,
+      "aWinRate": 16.16,
+      "bWinRate": 25.91,
+      "gap": -9.75
+    },
+    {
+      "a": "column",
+      "b": "pendulum",
+      "games": 295,
+      "aWinRate": 7.46,
+      "bWinRate": 45.76,
+      "gap": -38.3
+    },
+    {
+      "a": "diag",
+      "b": "weak",
+      "games": 304,
+      "aWinRate": 20.07,
+      "bWinRate": 34.21,
+      "gap": -14.14
+    },
+    {
+      "a": "diag",
+      "b": "pacifist",
+      "games": 329,
+      "aWinRate": 14.89,
+      "bWinRate": 22.8,
+      "gap": -7.91
+    },
+    {
+      "a": "diag",
+      "b": "brawler",
+      "games": 340,
+      "aWinRate": 19.71,
+      "bWinRate": 12.94,
+      "gap": 6.77
+    },
+    {
+      "a": "diag",
+      "b": "survivor",
+      "games": 330,
+      "aWinRate": 19.7,
+      "bWinRate": 0.61,
+      "gap": 19.09
+    },
+    {
+      "a": "diag",
+      "b": "late",
+      "games": 334,
+      "aWinRate": 10.48,
+      "bWinRate": 32.04,
+      "gap": -21.56
+    },
+    {
+      "a": "diag",
+      "b": "pendulum",
+      "games": 325,
+      "aWinRate": 12.62,
+      "bWinRate": 44.62,
+      "gap": -32
+    },
+    {
+      "a": "weak",
+      "b": "pacifist",
+      "games": 312,
+      "aWinRate": 54.17,
+      "bWinRate": 12.82,
+      "gap": 41.35
+    },
+    {
+      "a": "weak",
+      "b": "brawler",
+      "games": 320,
+      "aWinRate": 37.81,
+      "bWinRate": 21.56,
+      "gap": 16.25
+    },
+    {
+      "a": "weak",
+      "b": "survivor",
+      "games": 312,
+      "aWinRate": 43.91,
+      "bWinRate": 0.32,
+      "gap": 43.59
+    },
+    {
+      "a": "weak",
+      "b": "late",
+      "games": 303,
+      "aWinRate": 6.6,
+      "bWinRate": 34.32,
+      "gap": -27.72
+    },
+    {
+      "a": "weak",
+      "b": "pendulum",
+      "games": 323,
+      "aWinRate": 43.65,
+      "bWinRate": 36.22,
+      "gap": 7.43
+    },
+    {
+      "a": "pacifist",
+      "b": "brawler",
+      "games": 301,
+      "aWinRate": 23.26,
+      "bWinRate": 10.63,
+      "gap": 12.63
+    },
+    {
+      "a": "pacifist",
+      "b": "survivor",
+      "games": 310,
+      "aWinRate": 31.94,
+      "bWinRate": 0,
+      "gap": 31.94
+    },
+    {
+      "a": "pacifist",
+      "b": "late",
+      "games": 315,
+      "aWinRate": 27.94,
+      "bWinRate": 20.32,
+      "gap": 7.62
+    },
+    {
+      "a": "pacifist",
+      "b": "pendulum",
+      "games": 284,
+      "aWinRate": 17.25,
+      "bWinRate": 41.55,
+      "gap": -24.3
+    },
+    {
+      "a": "brawler",
+      "b": "survivor",
+      "games": 313,
+      "aWinRate": 13.1,
+      "bWinRate": 0.96,
+      "gap": 12.14
+    },
+    {
+      "a": "brawler",
+      "b": "late",
+      "games": 321,
+      "aWinRate": 4.98,
+      "bWinRate": 42.99,
+      "gap": -38.01
+    },
+    {
+      "a": "brawler",
+      "b": "pendulum",
+      "games": 294,
+      "aWinRate": 13.95,
+      "bWinRate": 36.73,
+      "gap": -22.78
+    },
+    {
+      "a": "survivor",
+      "b": "late",
+      "games": 283,
+      "aWinRate": 0.35,
+      "bWinRate": 33.22,
+      "gap": -32.87
+    },
+    {
+      "a": "survivor",
+      "b": "pendulum",
+      "games": 263,
+      "aWinRate": 0,
+      "bWinRate": 49.81,
+      "gap": -49.81
+    },
+    {
+      "a": "late",
+      "b": "pendulum",
+      "games": 263,
+      "aWinRate": 25.86,
+      "bWinRate": 36.5,
+      "gap": -10.64
+    }
+  ],
+  "combos": {
+    "total": 4224,
+    "mostCommon": [
+      {
+        "combo": "center+decap+fort+weak",
+        "games": 9,
+        "conquestRate": 100,
+        "avgTurns": 23.7,
+        "avgCoverage": 0.5674
+      },
+      {
+        "combo": "economy+mine+ring+weak",
+        "games": 9,
+        "conquestRate": 100,
+        "avgTurns": 63.8,
+        "avgCoverage": 0.6562
+      },
+      {
+        "combo": "guard+pendulum+spring+swarm",
+        "games": 8,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.6926
+      },
+      {
+        "combo": "column+pacifist+spring+weak",
+        "games": 8,
+        "conquestRate": 62.5,
+        "avgTurns": 78.3,
+        "avgCoverage": 0.6329
+      },
+      {
+        "combo": "brawler+fort+spring+weak",
+        "games": 8,
+        "conquestRate": 50,
+        "avgTurns": 83.1,
+        "avgCoverage": 0.6239
+      },
+      {
+        "combo": "border+center+fort+pendulum",
+        "games": 8,
+        "conquestRate": 12.5,
+        "avgTurns": 118.4,
+        "avgCoverage": 0.9051
+      },
+      {
+        "combo": "economy+fort+spring+swarm",
+        "games": 8,
+        "conquestRate": 100,
+        "avgTurns": 112.3,
+        "avgCoverage": 0.8992
+      },
+      {
+        "combo": "border+fort+late+swarm",
+        "games": 8,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.8381
+      },
+      {
+        "combo": "center+guard+mine+swarm",
+        "games": 7,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.7532
+      },
+      {
+        "combo": "center+economy+guerrilla+pendulum",
+        "games": 7,
+        "conquestRate": 100,
+        "avgTurns": 103.1,
+        "avgCoverage": 0.8594
+      }
+    ],
+    "mostConquest": [
+      {
+        "combo": "decap+pacifist+swarm+weak",
+        "games": 3,
+        "conquestRate": 100,
+        "avgTurns": 33.7,
+        "avgCoverage": 0.4592
+      },
+      {
+        "combo": "decap+diag+mine+pacifist",
+        "games": 3,
+        "conquestRate": 100,
+        "avgTurns": 31,
+        "avgCoverage": 0.5579
+      },
+      {
+        "combo": "decap+fort+pacifist+swarm",
+        "games": 4,
+        "conquestRate": 100,
+        "avgTurns": 30.8,
+        "avgCoverage": 0.513
+      },
+      {
+        "combo": "economy+fort+row+spring",
+        "games": 3,
+        "conquestRate": 100,
+        "avgTurns": 108,
+        "avgCoverage": 0.9225
+      },
+      {
+        "combo": "brawler+economy+guerrilla+ring",
+        "games": 5,
+        "conquestRate": 100,
+        "avgTurns": 101.8,
+        "avgCoverage": 0.8558
+      },
+      {
+        "combo": "border+diag+pendulum+weak",
+        "games": 4,
+        "conquestRate": 100,
+        "avgTurns": 32.3,
+        "avgCoverage": 0.6472
+      },
+      {
+        "combo": "border+economy+survivor+swarm",
+        "games": 3,
+        "conquestRate": 100,
+        "avgTurns": 107.3,
+        "avgCoverage": 0.8028
+      },
+      {
+        "combo": "brawler+center+decap+ring",
+        "games": 6,
+        "conquestRate": 100,
+        "avgTurns": 33.7,
+        "avgCoverage": 0.5211
+      },
+      {
+        "combo": "diag+economy+mine+swarm",
+        "games": 3,
+        "conquestRate": 100,
+        "avgTurns": 116,
+        "avgCoverage": 0.824
+      },
+      {
+        "combo": "decap+spring+survivor+weak",
+        "games": 4,
+        "conquestRate": 100,
+        "avgTurns": 30.5,
+        "avgCoverage": 0.468
+      }
+    ],
+    "fastest": [
+      {
+        "combo": "decap+fort+row+weak",
+        "games": 3,
+        "conquestRate": 100,
+        "avgTurns": 20.7,
+        "avgCoverage": 0.5535
+      },
+      {
+        "combo": "decap+pendulum+ring+weak",
+        "games": 3,
+        "conquestRate": 100,
+        "avgTurns": 21.7,
+        "avgCoverage": 0.4679
+      },
+      {
+        "combo": "decap+fort+mine+weak",
+        "games": 3,
+        "conquestRate": 100,
+        "avgTurns": 22.7,
+        "avgCoverage": 0.5255
+      },
+      {
+        "combo": "decap+fort+mine+row",
+        "games": 4,
+        "conquestRate": 100,
+        "avgTurns": 22.8,
+        "avgCoverage": 0.5556
+      },
+      {
+        "combo": "border+column+decap+weak",
+        "games": 5,
+        "conquestRate": 100,
+        "avgTurns": 23,
+        "avgCoverage": 0.6173
+      },
+      {
+        "combo": "center+decap+fort+weak",
+        "games": 9,
+        "conquestRate": 100,
+        "avgTurns": 23.7,
+        "avgCoverage": 0.5674
+      },
+      {
+        "combo": "column+decap+diag+ring",
+        "games": 3,
+        "conquestRate": 100,
+        "avgTurns": 23.7,
+        "avgCoverage": 0.4828
+      },
+      {
+        "combo": "column+decap+pacifist+ring",
+        "games": 3,
+        "conquestRate": 100,
+        "avgTurns": 24.7,
+        "avgCoverage": 0.4669
+      },
+      {
+        "combo": "decap+mine+pacifist+weak",
+        "games": 3,
+        "conquestRate": 100,
+        "avgTurns": 25.7,
+        "avgCoverage": 0.4675
+      },
+      {
+        "combo": "decap+survivor+swarm+weak",
+        "games": 4,
+        "conquestRate": 100,
+        "avgTurns": 25.8,
+        "avgCoverage": 0.4415
+      }
+    ],
+    "slowest": [
+      {
+        "combo": "late+ring+swarm+weak",
+        "games": 3,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.7083
+      },
+      {
+        "combo": "center+guerrilla+survivor+swarm",
+        "games": 5,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.6764
+      },
+      {
+        "combo": "border+column+guard+ring",
+        "games": 5,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.6481
+      },
+      {
+        "combo": "brawler+pendulum+row+survivor",
+        "games": 5,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.577
+      },
+      {
+        "combo": "center+column+fort+guerrilla",
+        "games": 6,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.8467
+      },
+      {
+        "combo": "border+decap+diag+late",
+        "games": 3,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.6829
+      },
+      {
+        "combo": "center+column+mine+spring",
+        "games": 5,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.807
+      },
+      {
+        "combo": "guard+late+mine+swarm",
+        "games": 3,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.7129
+      },
+      {
+        "combo": "late+mine+pacifist+pendulum",
+        "games": 3,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.9136
+      },
+      {
+        "combo": "center+fort+guard+late",
+        "games": 3,
+        "conquestRate": 0,
+        "avgTurns": 120,
+        "avgCoverage": 0.7059
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "border-colony",
+  "version": "6.4.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "npm run test:rules && npm run test:llm && npm run test:memory && npm run test:balance && npm run test:bots && npm run test:llm-integration",
+    "test:rules": "node test/rules.mjs",
+    "test:bots": "node server/gameLoop.js --auto --turns 120",
+    "test:balance": "node test/balance.mjs",
+    "test:llm": "node test/llm.mjs",
+    "test:memory": "node test/memory.mjs",
+    "test:llm-integration": "node test/llm-integration.mjs"
+  },
+  "dependencies": {
+    "express": "^4.19.0",
+    "socket.io": "^4.7.0",
+    "dotenv": "^16.4.0"
+  }
+}

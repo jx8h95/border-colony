@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:," />
+  <title>边界殖民地 v6.4</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    :root {
+      --bg: #e7e3da;
+      --panel: #fbfaf7;
+      --ink: #2b3038;
+      --ink-soft: #767c85;
+      --ink-faint: #a9adb3;
+      --line: #e6e2d9;
+      --line-soft: #f0ece4;
+      --accent: #0a1f44;
+      --A: #0A1F44;
+      --B: #FF5A5F;
+      --C: #00A896;
+      --D: #FFC300;
+    }
+    body {
+      margin: 0; font-family: "Segoe UI", system-ui, -apple-system, "Microsoft YaHei", sans-serif;
+      background: var(--bg); color: var(--ink); display: flex; overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------------- 侧栏 ---------------- */
+    #sidebar {
+      width: 352px; height: 100vh; padding: 18px 16px 26px; background: var(--panel);
+      overflow-y: auto; flex-shrink: 0; border-right: 1px solid var(--line);
+      scrollbar-width: thin;
+    }
+    #sidebar::-webkit-scrollbar { width: 7px; }
+    #sidebar::-webkit-scrollbar-thumb { background: #ddd8cd; border-radius: 4px; }
+
+    h1 { font-size: 15px; margin: 0 0 2px; letter-spacing: 1.4px; font-weight: 700; color: #1c2430; }
+    .sub { font-size: 10px; color: var(--ink-faint); margin-bottom: 14px; letter-spacing: .7px; }
+    h2 {
+      font-size: 9.5px; margin: 13px 0 7px; color: var(--ink-faint);
+      letter-spacing: 2.2px; font-weight: 600; display: flex; align-items: center; gap: 7px;
+    }
+    h2::after { content: ''; flex: 1; height: 1px; background: var(--line-soft); }
+
+    details { margin-top: 12px; }
+    summary {
+      list-style: none; cursor: pointer; font-size: 9.5px; color: var(--ink-faint);
+      letter-spacing: 2.2px; font-weight: 600; display: flex; align-items: center; gap: 7px;
+      margin-bottom: 9px; user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: ''; flex: 1; height: 1px; background: var(--line-soft); }
+    .sum-hint { letter-spacing: 0; font-size: 8.5px; color: #c3c5c9; font-weight: 400; order: 3; }
+    details[open] .sum-hint { opacity: .55; }
+
+    #turnLabel { font-size: 26px; font-weight: 600; margin: 0 0 12px; font-variant-numeric: tabular-nums; color: #1c2430; letter-spacing: -.6px; }
+    #turnLabel small { font-size: 11px; color: var(--ink-faint); font-weight: 400; letter-spacing: 0; }
+
+    /* 势力行 */
+    .faction { padding: 7px 0 6px; border-bottom: 1px solid var(--line-soft); }
+    .faction.win { background: #f3f5f0; border-radius: 5px; padding: 7px 7px 6px; }
+    .faction.dead { opacity: .4; }
+    .f-top { display: flex; align-items: center; gap: 7px; font-size: 12px; margin-bottom: 5px; }
+    .f-name { font-weight: 700; letter-spacing: .5px; }
+    .f-tag { font-size: 9px; color: var(--ink-faint); letter-spacing: .2px; }
+    .f-num { margin-left: auto; font-variant-numeric: tabular-nums; font-weight: 600; font-size: 11.5px; }
+    .f-sub { font-size: 9.5px; color: #8e939a; font-variant-numeric: tabular-nums; display: flex; gap: 8px; flex-wrap: wrap; }
+    .f-sub b { font-weight: 700; color: #5c636c; }
+    .bar { height: 3px; border-radius: 2px; background: var(--line-soft); overflow: hidden; margin: 3px 0; }
+    .bar > i { display: block; height: 100%; border-radius: 2px; transition: width .35s ease; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .dot.A { background: var(--A); } .dot.B { background: var(--B); }
+    .dot.C { background: var(--C); } .dot.D { background: var(--D); }
+
+    /* 参数 */
+    #params { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 8px; }
+    .p-field { display: flex; flex-direction: column; gap: 2px; }
+    .p-field label { font-size: 9.5px; color: #8b9098; letter-spacing: .2px; white-space: nowrap; }
+    .p-field input {
+      width: 100%; padding: 4px 6px; border-radius: 4px; border: 1px solid var(--line);
+      background: #f7f5f0; color: var(--ink); font-family: inherit; font-size: 11.5px;
+      font-variant-numeric: tabular-nums; transition: border-color .15s, background .15s;
+    }
+    .p-field input:focus { outline: none; border-color: #b9c4d4; background: #fff; }
+    .p-field input.bad { border-color: #e0a3a5; background: #fdf3f3; }
+    .p-range { font-size: 8.5px; color: #b6b9be; letter-spacing: 0; }
+    .p-note { font-size: 9px; color: var(--ink-faint); margin-top: 7px; line-height: 1.55; }
+    .p-note b { color: #8a6d2f; font-weight: 600; }
+
+    /* ---------------- 大模型接入 ---------------- */
+    .llm-box {
+      background: #f7f5f0; border: 1px solid var(--line-soft); border-radius: 6px;
+      padding: 9px 10px 10px;
+    }
+    .llm-line { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+    .llm-line > label { font-size: 10px; color: #8b9098; width: 48px; flex-shrink: 0; }
+    .llm-line input, .llm-line select, .llm-grid input {
+      flex: 1; min-width: 0; padding: 5px 7px; border-radius: 4px; border: 1px solid var(--line);
+      background: #fff; color: var(--ink); font-family: inherit; font-size: 11px;
+    }
+    .llm-line input:focus, .llm-line select:focus, .llm-grid input:focus { outline: none; border-color: #b9c4d4; }
+    .llm-line input::placeholder { color: #c0c3c7; }
+    .llm-line select { cursor: pointer; }
+    .llm-btns { display: grid; grid-template-columns: 1.15fr 1fr .7fr; gap: 5px; margin: 8px 0 6px; }
+    .llm-btns button { padding: 6px 4px; font-size: 10.5px; letter-spacing: 0; }
+    .chk { display: flex; align-items: center; gap: 5px; font-size: 9.5px; color: #8b9098; cursor: pointer; }
+    .chk input { width: 12px; height: 12px; accent-color: var(--accent); }
+    .llm-status {
+      margin-top: 7px; font-size: 9.5px; line-height: 1.55; padding: 5px 7px;
+      border-radius: 4px; background: #efece4; color: #8b9098; word-break: break-all;
+    }
+    .llm-status.on { background: #e8f2ec; color: #2f7d5f; }
+    .llm-status.bad { background: #fbeceb; color: #b6534e; }
+    #llmAdvanced { margin-top: 8px; }
+    #llmAdvanced summary { margin-bottom: 7px; }
+    .llm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .llm-grid label { display: flex; flex-direction: column; gap: 3px; font-size: 9px; color: #8b9098; }
+    .llm-grid label:first-child { grid-column: span 2; }
+    .llm-opts { display: flex; flex-direction: column; gap: 3px; margin: 7px 0 6px; }
+
+    /* 已保存的多份模型 */
+    #profileList { display: flex; flex-direction: column; gap: 5px; }
+    .prof-empty {
+      font-size: 9.5px; color: #9aa0a6; line-height: 1.6; padding: 7px 8px;
+      background: #f7f5f0; border: 1px dashed var(--line); border-radius: 5px;
+    }
+    .prof-row { padding: 6px 8px 7px; border-radius: 5px; background: #f7f5f0; border: 1px solid var(--line-soft); }
+    .prof-row.default { background: #f1f6fb; border-color: #d3e0ee; }
+    .prof-name { display: flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 700; color: #3a414a; }
+    .prof-name .tag { font-size: 8px; font-weight: 500; padding: 1px 4px; border-radius: 3px; background: #dfe9f5; color: #3a6091; }
+    .prof-name .nokey { font-size: 8px; font-weight: 500; padding: 1px 4px; border-radius: 3px; background: #f5e6df; color: #b06a3f; }
+    .prof-meta { font-size: 9px; color: #969ba1; margin-top: 2px; line-height: 1.45; word-break: break-all; }
+    .prof-acts { display: flex; gap: 4px; margin-top: 5px; flex-wrap: wrap; }
+    .prof-acts button {
+      padding: 3px 6px; font-size: 9px; letter-spacing: 0; font-weight: 500;
+      background: #ece8df; color: #646a72; border-radius: 3px;
+    }
+    .prof-acts button:hover:not(:disabled) { filter: none; background: #e2ddd2; }
+    .prof-acts button.danger { color: #b6534e; }
+    .prof-acts button.on { background: #dfe9f5; color: #3a6091; }
+
+    /* ---------------- 势力操控 ---------------- */
+    #controllerRows { display: flex; flex-direction: column; gap: 5px; }
+    .ctrl-row { display: flex; align-items: center; gap: 6px; }
+    .ctrl-row > b { font-size: 11px; width: 10px; }
+    .ctrl-row select {
+      padding: 4px 3px; border-radius: 4px; border: 1px solid var(--line);
+      background: #fff; color: var(--ink); font-family: inherit; font-size: 10px; cursor: pointer;
+    }
+    .ctrl-row .c-mode { width: 108px; }
+    .ctrl-row .c-style { width: 78px; }
+    .c-state { font-size: 9px; color: #b9bcc0; margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 66px; text-align: right; }
+    .c-state.ok { color: #2f7d5f; } .c-state.warn { color: #c08a2e; } .c-state.bad { color: #c2544f; }
+
+    /* 按钮 */
+    #controls { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 7px; }
+    button {
+      padding: 7px 10px; border: 0; border-radius: 5px; font-size: 11.5px; font-weight: 600;
+      background: var(--accent); color: #fff; cursor: pointer; font-family: inherit;
+      transition: filter .15s, opacity .15s; letter-spacing: .4px;
+    }
+    button:hover:not(:disabled) { filter: brightness(1.18); }
+    button.secondary { background: #eae6dd; color: #646a72; }
+    button:disabled { opacity: .32; cursor: not-allowed; }
+    button.wide { grid-column: span 2; }
+
+    .row { display: flex; align-items: center; gap: 8px; margin-top: 7px; font-size: 10.5px; color: var(--ink-soft); }
+    .row select {
+      padding: 4px 6px; border-radius: 4px; border: 1px solid var(--line);
+      background: #f7f5f0; color: var(--ink); font-family: inherit; font-size: 11px;
+    }
+    .lnk { color: #5b6b85; text-decoration: none; margin-left: auto; cursor: pointer; }
+
+    /* 图例 / 速记 */
+    #quickRules { font-size: 10px; color: #7b8189; line-height: 1.85; }
+    #quickRules b { color: #4d545c; font-weight: 600; }
+    .d { font-style: normal; font-size: 9px; margin-left: 3px; font-variant-numeric: tabular-nums; }
+    .d.up { color: #2f7d5f; } .d.down { color: #c2544f; } .d.flat { color: #b9bcc0; }
+
+    #events { font-size: 10.5px; line-height: 1.7; color: var(--ink-soft); max-height: 170px; overflow-y: auto; }
+    #events div { padding: 2px 0; border-bottom: 1px dashed #f2eee6; }
+    #events div:last-child { color: var(--ink); }
+    #events .t { display: inline-block; min-width: 30px; margin-right: 5px; color: var(--ink-faint); font-size: 9.5px; font-variant-numeric: tabular-nums; }
+
+    /* ---------------- 画布 + 右侧信息栏 ---------------- */
+    #main { flex: 1; display: flex; flex-direction: row; min-width: 0; position: relative; }
+    #canvasWrap { flex: 1; min-width: 0; position: relative; overflow: hidden; background: #dcd8cf; }
+    #dock {
+      width: 268px; flex-shrink: 0; height: 100vh; overflow-y: auto; padding: 16px 16px 26px;
+      background: var(--panel); border-left: 1px solid var(--line); scrollbar-width: thin;
+    }
+    #dock::-webkit-scrollbar { width: 7px; }
+    #dock::-webkit-scrollbar-thumb { background: #ddd8cd; border-radius: 4px; }
+    .d-title {
+      font-size: 9.5px; color: var(--ink-faint); letter-spacing: 2.2px; font-weight: 600;
+      display: flex; align-items: center; gap: 7px; margin: 16px 0 8px;
+    }
+    .d-title:first-child { margin-top: 0; }
+    .d-title::after { content: ''; flex: 1; height: 1px; background: var(--line-soft); }
+    .d-title .turn { letter-spacing: 0; font-size: 9px; color: #b9bcc0; font-weight: 400; order: 3; }
+    /* 排行榜 */
+    #leaderboard { display: flex; flex-direction: column; gap: 3px; }
+    .lb-row { display: flex; gap: 6px; padding: 6px 5px; border-radius: 5px; border: 1px solid transparent; }
+    .lb-row.top { background: #f5f3ec; border-color: #eae3d2; }
+    .lb-row.dead { opacity: .45; }
+    .lb-rank { width: 14px; flex-shrink: 0; font-size: 12px; font-weight: 700; color: #a9adb3; padding-top: 1px; font-variant-numeric: tabular-nums; }
+    .lb-row.top .lb-rank { color: #b08d3f; }
+    .lb-row .dot { margin-top: 4px; }
+    .lb-main { flex: 1; min-width: 0; }
+    .lb-top { display: flex; align-items: center; gap: 5px; font-size: 10px; }
+    .lb-top > b { font-size: 11px; }
+    .lb-badge { font-size: 8.5px; padding: 1px 4px; border-radius: 3px; background: #ece8df; color: #7b8189; white-space: nowrap; }
+    .lb-badge.llm { background: #e4ecf6; color: #3a6091; }
+    .lb-chg { font-size: 9px; font-variant-numeric: tabular-nums; }
+    .lb-chg.up { color: #2f7d5f; } .lb-chg.down { color: #c2544f; } .lb-chg.flat { color: #c0c3c7; }
+    .lb-pct { margin-left: auto; font-weight: 700; font-size: 11px; color: #3a414a; font-variant-numeric: tabular-nums; }
+    .lb-bar { height: 3px; border-radius: 2px; background: #eeeae2; overflow: hidden; margin: 4px 0 3px; }
+    .lb-bar > i { display: block; height: 100%; border-radius: 2px; transition: width .35s ease; }
+    .lb-sub { display: flex; flex-wrap: wrap; gap: 6px; font-size: 8.5px; color: #9aa0a6; font-variant-numeric: tabular-nums; }
+    #recordTable { width: 100%; border-collapse: collapse; font-size: 9.5px; font-variant-numeric: tabular-nums; }
+    #recordTable th { color: var(--ink-faint); font-weight: 500; text-align: right; padding: 3px 3px; border-bottom: 1px solid var(--line); }
+    #recordTable th:first-child, #recordTable td:first-child { text-align: left; }
+    #recordTable td { text-align: right; padding: 4px 3px; border-bottom: 1px dashed var(--line-soft); color: #5c636c; }
+    #recordTable td:first-child { font-weight: 700; }
+    #legendCanvas { display: block; width: 236px; border-radius: 5px; background: #f7f5f0; border: 1px solid var(--line-soft); }
+    #metricTabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-bottom: 7px; }
+    #metricTabs button {
+      padding: 5px 0; font-size: 10px; letter-spacing: 0; background: #eeeae2; color: #7b8189;
+      border-radius: 4px; font-weight: 500;
+    }
+    #metricTabs button.on { background: var(--accent); color: #fff; }
+    #trendCanvas { display: block; width: 236px; border-radius: 5px; background: #f7f5f0; border: 1px solid var(--line-soft); }
+    #deltaTable { width: 100%; border-collapse: collapse; font-size: 9.5px; font-variant-numeric: tabular-nums; }
+    #deltaTable th { color: var(--ink-faint); font-weight: 500; text-align: right; padding: 3px 2px; border-bottom: 1px solid var(--line); }
+    #deltaTable th:first-child, #deltaTable td:first-child { text-align: left; }
+    #deltaTable td { text-align: right; padding: 4px 2px; border-bottom: 1px dashed var(--line-soft); color: #5c636c; }
+    #deltaTable td:first-child { font-weight: 700; }
+    #deltaTable .v { font-weight: 600; color: #3a414a; }
+    /* 学习记忆 */
+    .mem-line { display: flex; gap: 8px; flex-wrap: wrap; margin: 7px 0 4px; }
+    .mem-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 6px 0 8px; }
+    .mem-stat { border: 1px solid var(--line-soft); border-radius: 4px; padding: 5px 2px; text-align: center; background: #faf8f3; }
+    .mem-stat b { display: block; font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .mem-stat span { font-size: 8px; color: var(--ink-faint); white-space: nowrap; }
+    #memTabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-bottom: 6px; }
+    #memTabs button { padding: 4px 0; font-size: 9.5px; letter-spacing: 0; background: #eeeae2; color: #7b8189; border-radius: 4px; font-weight: 500; }
+    #memTabs button.on { background: var(--accent); color: #fff; }
+    #memLessons { display: flex; flex-direction: column; gap: 4px; max-height: 174px; overflow-y: auto; }
+    .mem-item { border: 1px solid var(--line-soft); border-radius: 4px; padding: 5px 6px; background: #fff; font-size: 9.5px; line-height: 1.5; color: #5c636c; }
+    .mem-item .mi-top { display: flex; align-items: center; gap: 5px; margin-bottom: 2px; }
+    .mem-kind { font-size: 8px; padding: 1px 4px; border-radius: 3px; background: #e4ecf6; color: #3a6091; white-space: nowrap; }
+    .mem-kind.llm { background: #efe9f7; color: #6b4d99; }
+    .mem-kind.manual { background: #e8f2ec; color: #2f7d5f; }
+    .mem-uses { margin-left: auto; font-size: 8px; color: #a9adb3; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .mem-del { border: none; background: none; color: #c2544f; padding: 0 2px; font-size: 11px; letter-spacing: 0; cursor: pointer; }
+    .mem-empty { font-size: 9px; color: var(--ink-faint); padding: 6px 2px; line-height: 1.6; }
+    #memFeedback { font-size: 9px; color: #7b8189; line-height: 1.55; background: #f7f5f0; border-radius: 4px; padding: 6px; margin-top: 6px; }
+    .mem-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 7px; }
+    .mem-btns button { padding: 6px 2px; font-size: 9.5px; letter-spacing: 0; }
+    .d-note { font-size: 9px; color: var(--ink-faint); line-height: 1.6; margin-top: 8px; }
+    #canvasWrap canvas {
+      display: block; position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%, -50%); cursor: grab;
+      box-shadow: 0 10px 34px rgba(60,58,50,.18), 0 1px 3px rgba(60,58,50,.12);
+      border-radius: 2px;
+    }
+    .badge {
+      position: absolute; right: 14px; top: 12px; font-size: 10.5px; padding: 5px 12px;
+      border-radius: 20px; background: rgba(251,250,247,.92); border: 1px solid var(--line);
+      color: var(--ink-soft); backdrop-filter: blur(6px); letter-spacing: .4px;
+    }
+    .badge.live { color: #2f6b57; border-color: #c9dbd2; }
+    .badge.over { color: #8c6f2a; border-color: #e3d6b4; }
+    #hint {
+      position: absolute; left: 14px; bottom: 12px; font-size: 10px; color: #9c9e97;
+      pointer-events: none; letter-spacing: .4px;
+    }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <h1>边界殖民地 v6.4</h1>
+    <div class="sub">50 × 50 · 走过即翻旗 · 包围易主 · 多模型 + 对局记忆</div>
+
+    <div id="turnLabel">0 <small>/ 120 回合</small></div>
+    <div id="scores"></div>
+
+    <h2>接入大模型<span class="sum-hint" style="order:3">可保存多份</span></h2>
+    <div class="llm-box">
+      <div class="llm-line">
+        <label>名称</label>
+        <input id="llmName" placeholder="例：DeepSeek 主力（留空自动命名）" spellcheck="false" />
+      </div>
+      <div class="llm-line">
+        <label>服务商</label>
+        <select id="llmProvider"></select>
+      </div>
+      <div class="llm-line">
+        <label>API Key</label>
+        <input id="llmKey" type="password" placeholder="只填这一项即可开跑" autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="llm-btns">
+        <button id="btnLlmSave">保存为模型</button>
+        <button id="btnLlmTest" class="secondary">测试连接</button>
+        <button id="btnLlmClear" class="secondary">清空</button>
+      </div>
+      <div class="llm-opts">
+        <label class="chk"><input type="checkbox" id="llmMakeDefault" checked /> 设为默认模型（势力选「AI 大模型（默认）」时用）</label>
+        <label class="chk"><input type="checkbox" id="llmPersist" /> 同时写入本机 .env（仅默认模型生效）</label>
+      </div>
+      <div id="llmStatus" class="llm-status">未配置 · 只需 API Key，其余参数已预设</div>
+      <details id="llmAdvanced">
+        <summary>高级设置<span class="sum-hint">通常不用改</span></summary>
+        <div class="llm-grid">
+          <label>Base URL<input id="llmBase" placeholder="https://…/v1" spellcheck="false" /></label>
+          <label>模型名<input id="llmModel" placeholder="gpt-4o-mini" spellcheck="false" /></label>
+          <label>温度<input id="llmTemp" type="number" min="0" max="2" step="0.1" /></label>
+          <label>超时 / 秒<input id="llmTimeout" type="number" min="5" max="120" step="5" /></label>
+        </div>
+        <div class="p-note">换服务商会自动套用对应端点与模型；只有「自定义端点」才需要手填。密钥保存在服务端本机，接口只回传脱敏信息。</div>
+      </details>
+    </div>
+
+    <h2>已保存的模型<span class="sum-hint" style="order:3" id="profileCount">0 份</span></h2>
+    <div id="profileList"></div>
+
+    <h2>势力操控<span class="sum-hint" style="order:3">开局前设置</span></h2>
+    <div id="controllerRows"></div>
+    <div class="p-note">下拉里可直接选「已保存的模型」，<b>四家可用不同 Key / 不同模型</b>；没配 Key / 超时 / 输出非法会自动降级为脚本；改动下局生效。</div>
+
+    <h2>控制</h2>
+    <div id="controls">
+      <button id="btnNew">新开一局</button>
+      <button id="btnAuto" class="secondary">自动运行</button>
+      <button id="btnStep" class="secondary">单步</button>
+      <button id="btnStop" class="secondary">暂停</button>
+    </div>
+    <div class="row">
+      <span>速度</span>
+      <select id="speed">
+        <option value="600">慢</option>
+        <option value="260" selected>中</option>
+        <option value="90">快</option>
+      </select>
+      <a id="btnFit" class="lnk">适应窗口</a>
+      <a id="btnReset" class="lnk" style="margin-left:10px">恢复默认</a>
+    </div>
+
+    <details id="paramBox">
+      <summary>玩法参数<span class="sum-hint">点我展开 / 收起</span></summary>
+      <div id="params"></div>
+      <div class="p-note">超出范围会自动收到边界值。<b>改完点「新开一局」生效。</b></div>
+    </details>
+
+    <h2>玩法速记</h2>
+    <div id="quickRules">
+      · 士兵走过的格子 + 周边 8 格<b>重新归己方</b>，敌方领土也照翻。<br />
+      · 中立地四邻同色 → 自动归该家；被单一敌家围死、<b>块内没有守军</b>的领土整块易主。<br />
+      · 敌对士兵距离 ≤ 2 格<b>自动交战</b>，伤害固定 = 攻击力；血量固定 10 点，不随距离衰减。<br />
+      · <b>群殴</b>：多人同打一个目标，每人伤害递增（最多 +3），且被围者 defend 减伤失效。<br />
+      · 深灰<b>障碍</b>不可通行、不可占领、不能布置资源，占比不超过 10%。<br />
+      · 正中央<b>黄金矿</b>资源无限：站上去即占领，持有者每回合自动得资源，别家踩上来就易主。<br />
+      · 泉水 +3 攻击，踩过 4 回合有效。<br />
+      · 四家永远敌对，<b>没有结盟</b>。
+    </div>
+
+    <div id="goldMineInfo" style="margin:10px 0;padding:7px 9px;background:#f7f5f0;border:1px solid #e9e5dc;border-radius:6px;font-size:11px;line-height:1.6;color:#6b7280;">中央黄金矿：等待开局</div>
+
+    <h2>事件</h2>
+    <div id="events"><div>点击「新开一局」开始</div></div>
+  </div>
+
+  <div id="main">
+    <div id="canvasWrap">
+      <canvas id="map"></canvas>
+      <div class="badge" id="statusBadge">待开始</div>
+      <div id="hint">滚轮缩放 · 拖拽平移</div>
+    </div>
+
+    <aside id="dock">
+      <div class="d-title">排行榜<span class="turn" id="rankTurn">T0</span></div>
+      <div id="leaderboard"><div class="d-note">等待对局数据…</div></div>
+      <div class="d-note" id="rankNote">按存活状态与领土格数排序；▲▼ 为相对上一回合的名次变化。</div>
+
+      <div class="d-title">历史战绩<span class="turn">累计 · 跨重启</span></div>
+      <table id="recordTable">
+        <thead><tr><th>势力</th><th>场次</th><th>胜</th><th>胜率</th><th>均领土</th></tr></thead>
+        <tbody id="recordBody"></tbody>
+      </table>
+      <div class="d-note">只统计跑完的整局；结果保存在本机，重启服务不会清零。</div>
+
+      <div class="d-title">学习记忆<span class="turn" id="memTag">—</span></div>
+      <div class="mem-line">
+        <label class="chk"><input type="checkbox" id="memEnabled" /> 注入提示词</label>
+        <label class="chk"><input type="checkbox" id="memReflect" /> 局末自动复盘</label>
+      </div>
+      <div class="mem-stats" id="memStats"></div>
+      <div id="memTabs"></div>
+      <div id="memLessons"></div>
+      <div id="memFeedback">本局还没产生回合反馈。</div>
+      <div class="mem-btns">
+        <button id="btnMemReflect" class="secondary">让模型复盘上一局</button>
+        <button id="btnMemClear" class="secondary">清空记忆</button>
+      </div>
+      <div class="d-note" id="memHint">大字为累计胜率，小字是大模型操控时的胜率（悬停看场次）。「模型复盘」会消耗一次模型调用。</div>
+
+      <div class="d-title">图标示例</div>
+      <canvas id="legendCanvas"></canvas>
+
+      <div class="d-title">每回合变化<span class="turn" id="trendTurn">T0</span></div>
+      <div id="metricTabs">
+        <button data-metric="territory" class="on">领土</button>
+        <button data-metric="units">士兵</button>
+        <button data-metric="stock">资源</button>
+        <button data-metric="kills">击杀</button>
+      </div>
+      <canvas id="trendCanvas"></canvas>
+      <div class="d-note">四条线对应 A / B / C / D，横轴为最近 160 回合；点上方标签切换指标。</div>
+
+      <div class="d-title">本回合 Δ<span class="turn" id="deltaTurn">T0</span></div>
+      <table id="deltaTable">
+        <thead><tr><th>势力</th><th>领土</th><th>士兵</th><th>资源</th><th>击杀</th></tr></thead>
+        <tbody id="deltaBody"></tbody>
+      </table>
+      <div class="d-note">Δ 为相对上一回合的变化；领土含走过翻旗、包围易主与亡国吞并。</div>
+    </aside>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
